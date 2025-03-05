@@ -901,4 +901,3 @@ layer_0/tile_data = PackedInt32Array(1966135, 131074, 5, 1966134, 131074, 5, 196
 
 [node name="Player" parent="." instance=ExtResource("5_f5jkv")]
 position = Vector2(570, 376)
-dash_speed = 2000
