@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://litj3wbsa10i"
+path="res://.godot/imported/Cave #2  Ambience  Sound Effect.mp3-514b5d2c61c28998b56e44b975135fa9.mp3str"
+
+[deps]
+
+source_file="res://SFX/Cave #2  Ambience  Sound Effect.mp3"
+dest_files=["res://.godot/imported/Cave #2  Ambience  Sound Effect.mp3-514b5d2c61c28998b56e44b975135fa9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
