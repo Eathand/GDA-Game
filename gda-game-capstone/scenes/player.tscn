@@ -9,8 +9,6 @@
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_frp8s")
-acceleration = null
-deceleration = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_r0sq4")
@@ -27,3 +25,7 @@ texture = ExtResource("2_kh7r8")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="DashTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
