@@ -1,12 +1,14 @@
 extends CharacterBody2D
 
 var speed := 300
-@export var acceleration := 10000
-@export var deceleration := 10000
+@export var max_health := 100
+
+@export var acceleration := 100
+@export var deceleration := 100
 @export var dash_speed := 1500.0
 @export var dash_duration := .2
 @export var dash_cooldown := 1.5
-
+var current_health := max_health
 var is_dashing := false
 var dash_timer := 0.0
 var dash_direction := Vector2.ZERO
@@ -16,9 +18,19 @@ func _ready() -> void:
 	cooldown_timer.wait_time = dash_cooldown
 	cooldown_timer.one_shot = true
 
-
+func die():
+	queue_free()
+func take_damage(amount: int):
+	current_health -= amount
+	if current_health <= 0:
+		current_health = 0 
+		die() 
+	
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("test_damage"):
+		take_damage(5)
+		print("Current health: %d" % current_health)
 	if is_dashing:
 		dash_timer -= delta
 		if dash_timer <= 0:
