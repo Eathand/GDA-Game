@@ -1,10 +1,10 @@
 extends CharacterBody2D
-
+class_name Player
 var speed := 300
 @export var max_health := 100
 
-@export var acceleration := 100
-@export var deceleration := 100
+@export var acceleration := 100000
+@export var deceleration := 100000
 @export var dash_speed := 1500.0
 @export var dash_duration := .2
 @export var dash_cooldown := 1.5
@@ -55,3 +55,9 @@ func start_dash(direction: Vector2):
 	dash_timer = dash_duration
 	dash_direction = direction
 	cooldown_timer.stop()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body is Mob:
+		take_damage(10)
+		print("Current health: %d" % current_health)
