@@ -1,62 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwpoiwpgp5ykn"]
+[gd_scene load_steps=11 format=3 uid="uid://cwpoiwpgp5ykn"]
 
 [ext_resource type="Script" path="res://scripts/sword.gd" id="1_idhua"]
-[ext_resource type="Texture2D" uid="uid://dlsl7mhht7nbs" path="res://icon.svg" id="2_6faqj"]
+[ext_resource type="Texture2D" uid="uid://b3ucxrla7wnae" path="res://scenes/weaponsmear-Sheet (1).png" id="2_xr35n"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_je24y"]
 radius = 0.25
-height = 4.41907
-
-[sub_resource type="Animation" id="Animation_pupvg"]
-resource_name = "swing"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/path = NodePath("Area2D/CollisionShape2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Area2D/CollisionShape2D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.533333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 2.18864]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
+height = 8.0
 
 [sub_resource type="Animation" id="Animation_srlfi"]
 length = 0.001
@@ -84,29 +33,33 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+
+[sub_resource type="Animation" id="Animation_pupvg"]
+resource_name = "swing"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D/CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(0, -4), Vector2(4, 2)]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/CollisionShape2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0]
+"values": [0.0, 2.03156]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qhnxx"]
@@ -114,6 +67,40 @@ _data = {
 "RESET": SubResource("Animation_srlfi"),
 "swing": SubResource("Animation_pupvg")
 }
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ke1ef"]
+atlas = ExtResource("2_xr35n")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6tl1"]
+atlas = ExtResource("2_xr35n")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7waf"]
+atlas = ExtResource("2_xr35n")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8y7fa"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ke1ef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6tl1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7waf")
+}],
+"loop": true,
+"name": &"swingg",
+"speed": 5.0
+}]
 
 [node name="Sword" type="Node2D"]
 script = ExtResource("1_idhua")
@@ -123,13 +110,16 @@ script = ExtResource("1_idhua")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_je24y")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.015625, 0.015625)
-texture = ExtResource("2_6faqj")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_qhnxx")
 }
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.0400391, 0.0400391)
+sprite_frames = SubResource("SpriteFrames_8y7fa")
+animation = &"swingg"
+frame = 2
+frame_progress = 1.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
