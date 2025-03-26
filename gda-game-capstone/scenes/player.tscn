@@ -42,7 +42,7 @@ texture = ExtResource("2_8whyy")
 
 [node name="Sword" parent="." instance=ExtResource("3_ro1b5")]
 visible = false
-position = Vector2(13, 0)
+position = Vector2(43, 2)
 rotation = 1.1973
 scale = Vector2(3, 3)
 
