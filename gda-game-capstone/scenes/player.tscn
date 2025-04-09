@@ -35,18 +35,20 @@ one_shot = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_umv7s")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1.90735e-06, 1.90735e-06)
-scale = Vector2(0.170898, 0.170898)
-texture = ExtResource("2_8whyy")
+[node name="Timer" type="Timer" parent="."]
 
-[node name="Sword" parent="." instance=ExtResource("3_ro1b5")]
-visible = false
+[node name="root" type="Node2D" parent="."]
+scale = Vector2(-1, 1)
+
+[node name="Sword" parent="root" instance=ExtResource("3_ro1b5")]
 position = Vector2(43, 2)
 rotation = 1.1973
 scale = Vector2(3, 3)
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="root"]
+position = Vector2(1.90735e-06, 1.90735e-06)
+scale = Vector2(0.170898, 0.170898)
+texture = ExtResource("2_8whyy")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

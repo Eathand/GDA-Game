@@ -3,7 +3,9 @@ class_name Player
 var speed := 300
 @export var max_health := 100
 @onready var dmgcool: Timer = $DamageCooldown
-@onready var sword: Sword = $Sword
+@onready var sprite_2d: Sprite2D = $root/Sprite2D
+
+@onready var sword: Sword = $root/Sword
 
 @export var acceleration := 100000
 @export var deceleration := 100000
@@ -53,7 +55,15 @@ func _physics_process(delta: float) -> void:
 		sword.show()
 		await get_tree().create_timer(0.2).timeout
 		sword.hide()
-
+	if velocity.x > 0:
+		sprite_2d.flip_h = false
+		sword.scale.x = -3.031
+		sword.scale.y = -3.27
+		sword.position 
+	else: 
+		sprite_2d.flip_h = true
+		sword.scale.x = 3.031
+		sword.scale.y = 3.027
 
 	move_and_slide()
 func start_dash(direction: Vector2):
