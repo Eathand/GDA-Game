@@ -41,6 +41,7 @@ sprite_frames = SubResource("SpriteFrames_umv7s")
 scale = Vector2(-1, 1)
 
 [node name="Sword" parent="root" instance=ExtResource("3_ro1b5")]
+visible = false
 position = Vector2(43, 2)
 rotation = 1.1973
 scale = Vector2(3, 3)
