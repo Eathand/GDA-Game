@@ -1,9 +1,10 @@
 extends CharacterBody2D
 class_name Player
 var speed := 300
-@export var max_health := 100
+@export var max_health := 10000
 @onready var dmgcool: Timer = $DamageCooldown
 @onready var sprite_2d: Sprite2D = $root/Sprite2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 @onready var sword: Sword = $root/Sword
 
@@ -47,25 +48,32 @@ func _physics_process(delta: float) -> void:
 		if has_input_direction:
 			var desired_velocity := direction * speed
 			velocity = velocity.move_toward(desired_velocity, acceleration * delta)
+			animated_sprite_2d.play("walk")
 		else:
 			velocity = velocity.move_toward(Vector2.ZERO, deceleration * delta)
+			animated_sprite_2d.stop()
 		if Input.is_action_just_pressed("dash") and has_input_direction and cooldown_timer.is_stopped():
 			start_dash(direction)
+
+		#sword.scale.x = 3.031
+		#sword.scale.y = 3.027
+	flip_sword()
+	move_and_slide()
+	
+func flip_sword():
 	if Input.is_action_just_pressed("Swing"):
 		sword.show()
+		sword.area_2d.show()
+		sword.swing()
 		await get_tree().create_timer(0.2).timeout
 		sword.hide()
-	if velocity.x > 0:
-		sprite_2d.flip_h = false
-		sword.scale.x = -3.031
-		sword.scale.y = -3.27
-		sword.position 
-	else: 
-		sprite_2d.flip_h = true
-		sword.scale.x = 3.031
-		sword.scale.y = 3.027
-
-	move_and_slide()
+		sword.area_2d.hide()
+	if Input.is_action_pressed("right"):
+		animated_sprite_2d.flip_h = true
+		sword.position.x = -43
+	if Input.is_action_pressed("left"):
+		animated_sprite_2d.flip_h = false
+		sword.position.x = 43
 func start_dash(direction: Vector2):
 	is_dashing = true
 	dash_timer = dash_duration

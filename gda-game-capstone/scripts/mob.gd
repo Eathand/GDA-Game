@@ -6,21 +6,24 @@ class_name Mob
 var acceleration = 700
 #const SPEED = 300.0
 #const JUMP_VELOCITY = -400.0
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 var current_health := max_health
-#func _ready() -> void:
-	##if player == null:
-		##player = get_node("Game/Player")
-	##if player == null:
-		##print("jjjjaaa")
+func _ready() -> void:
+	animated_sprite_2d.play("walk")
 func _physics_process(delta: float) -> void:
-
+	
 	var direction = global_position.direction_to(get_global_player_position())
 	var distance = global_position.distance_to(get_global_player_position())
 	var speed = max_speed if distance > 100 else max_speed * distance / 100
 	var desired_velocity = direction * speed
 	velocity = velocity.move_toward(desired_velocity, acceleration * delta)
 	move_and_slide()
+	if velocity.x > 0:
+		animated_sprite_2d.flip_h = true
+	else:
+		animated_sprite_2d.flip_h = false
+	
 func die():
 	queue_free()
 
@@ -37,3 +40,5 @@ func get_global_player_position() -> Vector2:
 	else:
 		printerr("koda")
 		return global_position 
+
+	

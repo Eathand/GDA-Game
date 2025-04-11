@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dw7pcx2ur8mps"]
+[gd_scene load_steps=11 format=3 uid="uid://dw7pcx2ur8mps"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_frp8s"]
+[ext_resource type="Texture2D" uid="uid://bphvuxclha51t" path="res://scripts/maincharacter-Sheet.png" id="2_5tfbi"]
 [ext_resource type="Texture2D" uid="uid://8c0dabow04vf" path="res://scenes/maincharacter (1).png" id="2_8whyy"]
 [ext_resource type="PackedScene" uid="uid://cwpoiwpgp5ykn" path="res://scenes/sword.tscn" id="3_ro1b5"]
 
@@ -9,7 +10,39 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_c313q"]
 radius = 16.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfeuc"]
+atlas = ExtResource("2_5tfbi")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45612"]
+atlas = ExtResource("2_5tfbi")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qia5o"]
+atlas = ExtResource("2_5tfbi")
+region = Rect2(1024, 0, 512, 512)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_umv7s"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfeuc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45612")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qia5o")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_frp8s")
@@ -33,7 +66,10 @@ wait_time = 0.4
 one_shot = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.171, 0.171)
 sprite_frames = SubResource("SpriteFrames_umv7s")
+animation = &"walk"
+frame_progress = 0.14746
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -41,12 +77,12 @@ sprite_frames = SubResource("SpriteFrames_umv7s")
 scale = Vector2(-1, 1)
 
 [node name="Sword" parent="root" instance=ExtResource("3_ro1b5")]
-visible = false
 position = Vector2(43, 2)
 rotation = 1.1973
 scale = Vector2(3, 3)
 
 [node name="Sprite2D" type="Sprite2D" parent="root"]
+visible = false
 position = Vector2(1.90735e-06, 1.90735e-06)
 scale = Vector2(0.170898, 0.170898)
 texture = ExtResource("2_8whyy")
