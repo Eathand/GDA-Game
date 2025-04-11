@@ -5,6 +5,9 @@ var speed := 300
 @onready var dmgcool: Timer = $DamageCooldown
 @onready var sprite_2d: Sprite2D = $root/Sprite2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var lcollision_shape_2d: CollisionShape2D = $root/Sword/Area2D/CollisionShape2D
+@onready var playercol: CollisionShape2D = $playercol
+
 
 @onready var sword: Sword = $root/Sword
 
@@ -22,7 +25,7 @@ var dash_velocity = 0.0
 func _ready() -> void:
 	cooldown_timer.wait_time = dash_cooldown
 	cooldown_timer.one_shot = true
-
+	
 func die():
 	queue_free()
 func take_damage(amount: int):
@@ -54,9 +57,12 @@ func _physics_process(delta: float) -> void:
 			animated_sprite_2d.stop()
 		if Input.is_action_just_pressed("dash") and has_input_direction and cooldown_timer.is_stopped():
 			start_dash(direction)
-
+			playercol.disabled = true
+		else:
+			playercol.disabled = false
 		#sword.scale.x = 3.031
 		#sword.scale.y = 3.027
+
 	flip_sword()
 	move_and_slide()
 	

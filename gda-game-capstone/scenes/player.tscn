@@ -45,9 +45,10 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
+motion_mode = 1
 script = ExtResource("1_frp8s")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="playercol" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_r0sq4")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -77,6 +78,7 @@ frame_progress = 0.14746
 scale = Vector2(-1, 1)
 
 [node name="Sword" parent="root" instance=ExtResource("3_ro1b5")]
+visible = false
 position = Vector2(43, 2)
 rotation = 1.1973
 scale = Vector2(3, 3)

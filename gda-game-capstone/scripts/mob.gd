@@ -7,10 +7,13 @@ var acceleration = 700
 #const SPEED = 300.0
 #const JUMP_VELOCITY = -400.0
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var realcollision: CollisionShape2D = $realcollision
+
 
 var current_health := max_health
 func _ready() -> void:
 	animated_sprite_2d.play("walk")
+	
 func _physics_process(delta: float) -> void:
 	
 	var direction = global_position.direction_to(get_global_player_position())
@@ -23,7 +26,7 @@ func _physics_process(delta: float) -> void:
 		animated_sprite_2d.flip_h = true
 	else:
 		animated_sprite_2d.flip_h = false
-	
+
 func die():
 	queue_free()
 
