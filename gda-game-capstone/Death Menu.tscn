@@ -1,0 +1,63 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5nvekxcdja1e"]
+
+[ext_resource type="FontFile" uid="uid://cpqnpdriqfuxh" path="res://scenes/medieval-pixel.ttf" id="1_cte0h"]
+
+[node name="Death Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.509
+anchor_top = 0.998
+anchor_right = 0.509
+anchor_bottom = 1.0
+offset_left = -304.28
+offset_top = -185.84
+offset_right = 305.72
+offset_bottom = -2.0
+theme_override_fonts/font = ExtResource("1_cte0h")
+theme_override_font_sizes/font_size = 121
+text = "Start Over"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.999
+anchor_right = 1.0
+anchor_bottom = 0.999
+offset_left = -186.0
+offset_top = -83.92
+offset_right = -1.0
+offset_bottom = 0.0799561
+theme_override_fonts/font = ExtResource("1_cte0h")
+theme_override_font_sizes/font_size = 101
+text = "Quit"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 140.0
+offset_right = 1873.0
+offset_bottom = 403.0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("1_cte0h")
+theme_override_font_sizes/font_size = 191
+text = "A valiant effort. 
+A horrable result"
+uppercase = true
