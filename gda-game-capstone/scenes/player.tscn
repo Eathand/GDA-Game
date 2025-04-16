@@ -24,6 +24,6 @@ texture = ExtResource("2_kh7r8")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(3, 3)
-zoom = Vector2(3, 3)
+zoom = Vector2(5, 5)
 
 [node name="DashTimer" type="Timer" parent="."]
