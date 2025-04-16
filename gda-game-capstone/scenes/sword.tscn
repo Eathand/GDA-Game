@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cwpoiwpgp5ykn"]
+[gd_scene load_steps=12 format=3 uid="uid://cwpoiwpgp5ykn"]
 
 [ext_resource type="Script" path="res://scripts/sword.gd" id="1_idhua"]
 [ext_resource type="Texture2D" uid="uid://b3ucxrla7wnae" path="res://scenes/weaponsmear-Sheet (1).png" id="2_xr35n"]
+[ext_resource type="Texture2D" uid="uid://ppg6rcks6bdd" path="res://weapon.png" id="3_r7xet"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_je24y"]
 radius = 0.25
@@ -69,10 +70,58 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(3, 3)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D2:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.340339]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite2D2:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12, -1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprite2D:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, -2)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sprite2D:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.302084]
+}
 
 [sub_resource type="Animation" id="Animation_pupvg"]
 resource_name = "swing"
-length = 0.06
+length = 0.04
 step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -133,6 +182,54 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(3, 3)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D2:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.02, 0.03, 0.04, 0.06),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.340339, -1.86925, -2.14468, -2.3631, -2.91397]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite2D2:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-13, 5), Vector2(-6, 13), Vector2(4, 13), Vector2(7, 11), Vector2(10, 9), Vector2(13, 7), Vector2(14, 3)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprite2D:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-7, 6), Vector2(-2, 9), Vector2(5, 10), Vector2(7, 7), Vector2(8, 6), Vector2(9, 4), Vector2(4, -4)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sprite2D:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.02, 0.04, 0.05, 0.06),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.167353, -0.627126, 0.302084, -0.260538, -0.56161, -0.020494]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qhnxx"]
@@ -197,8 +294,17 @@ animation = &"swingg"
 frame_progress = 0.666349
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, -2)
+rotation = 0.302084
 scale = Vector2(0.031, 0.027)
 texture = ExtResource("2_xr35n")
 hframes = 3
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-12, -1)
+rotation = -0.340339
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_r7xet")
+flip_h = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

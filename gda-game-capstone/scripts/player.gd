@@ -11,8 +11,8 @@ var speed := 300
 
 @onready var sword: Sword = $root/Sword
 
-@export var acceleration := 100000
-@export var deceleration := 100000
+@export var acceleration := 1000000
+@export var deceleration := 1000000
 @export var dash_speed := 1500.0
 @export var dash_duration := .2
 @export var dash_cooldown := 1.5
@@ -31,8 +31,8 @@ func die():
 func take_damage(amount: int):
 	current_health -= amount
 	if current_health <= 0:
-		current_health = 0 
-		die() 
+		current_health = 0
+		die()
 	
 
 func _physics_process(delta: float) -> void:
@@ -76,10 +76,12 @@ func flip_sword():
 		sword.area_2d.hide()
 	if Input.is_action_pressed("right"):
 		animated_sprite_2d.flip_h = true
-		sword.position.x = -43
+		#sword.position.x = -43
+		#sword.rotation = 1
 	if Input.is_action_pressed("left"):
 		animated_sprite_2d.flip_h = false
-		sword.position.x = 43
+		#sword.position.x = 43
+		
 func start_dash(direction: Vector2):
 	is_dashing = true
 	dash_timer = dash_duration

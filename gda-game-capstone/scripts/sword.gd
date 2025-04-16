@@ -24,3 +24,4 @@ func swing():
 	if Input.is_action_just_pressed("Swing"):
 		slashh.play("swingg")
 		animation_player.play("swing")
+		await animation_player
