@@ -5,8 +5,10 @@ var speed := 300
 @onready var dmgcool: Timer = $DamageCooldown
 @onready var sprite_2d: Sprite2D = $root/Sprite2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var lcollision_shape_2d: CollisionShape2D = $root/Sword/Area2D/CollisionShape2D
+
+
 @onready var playercol: CollisionShape2D = $playercol
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 @onready var sword: Sword = $root/Sword
@@ -57,9 +59,11 @@ func _physics_process(delta: float) -> void:
 			animated_sprite_2d.stop()
 		if Input.is_action_just_pressed("dash") and has_input_direction and cooldown_timer.is_stopped():
 			start_dash(direction)
+			animated_sprite_2d.play("daash")
 			playercol.disabled = true
 		else:
 			playercol.disabled = false
+			
 		#sword.scale.x = 3.031
 		#sword.scale.y = 3.027
 
@@ -76,12 +80,14 @@ func flip_sword():
 		sword.area_2d.hide()
 	if Input.is_action_pressed("right"):
 		animated_sprite_2d.flip_h = true
-		#sword.position.x = -43
-		#sword.rotation = 1
+		sword.position.x = -10
+		sword.scale.x =3
+		sword.scale.y=3
 	if Input.is_action_pressed("left"):
 		animated_sprite_2d.flip_h = false
-		#sword.position.x = 43
-		
+		sword.position.x = 10
+		sword.scale.x =3
+		sword.scale.y=-3
 func start_dash(direction: Vector2):
 	is_dashing = true
 	dash_timer = dash_duration
