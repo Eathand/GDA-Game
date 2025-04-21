@@ -61,8 +61,25 @@ func _physics_process(delta: float) -> void:
 			start_dash(direction)
 			if Input.is_action_pressed("up"):
 				animated_sprite_2d.play("Ndash")
+				animated_sprite_2d.flip_h = false
 			else:
 				animated_sprite_2d.play("daash")
+				animated_sprite_2d.flip_h = false
+			if Input.is_action_pressed("down"):
+				animated_sprite_2d.play("Sdash")
+				animated_sprite_2d.flip_h = false
+			if Input.is_action_pressed("up") and Input.is_action_pressed("left"):
+				animated_sprite_2d.play("NWdash")
+				animated_sprite_2d.flip_h = false
+			if Input.is_action_pressed("down") and Input.is_action_pressed("left"):
+				animated_sprite_2d.play("SWdash")
+				animated_sprite_2d.flip_h = false
+			if Input.is_action_pressed("up") and Input.is_action_pressed("right"):
+				animated_sprite_2d.play("NWdash")
+				animated_sprite_2d.flip_h = true
+			if Input.is_action_pressed("down") and Input.is_action_pressed("right"):
+				animated_sprite_2d.play("SWdash")
+				animated_sprite_2d.flip_h = true
 		else:
 			playercol.disabled = false
 
