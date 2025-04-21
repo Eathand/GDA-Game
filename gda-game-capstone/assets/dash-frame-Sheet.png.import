@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8c0dabow04vf"
-path="res://.godot/imported/maincharacter (1).png-e5ab91bba9fe99d06a4b50e4844f08af.ctex"
+uid="uid://bjsbddrlrame8"
+path="res://.godot/imported/dash-frame-Sheet.png-a0f254ba20fe674863841eabcead68e0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/maincharacter (1).png"
-dest_files=["res://.godot/imported/maincharacter (1).png-e5ab91bba9fe99d06a4b50e4844f08af.ctex"]
+source_file="res://assets/dash-frame-Sheet.png"
+dest_files=["res://.godot/imported/dash-frame-Sheet.png-a0f254ba20fe674863841eabcead68e0.ctex"]
 
 [params]
 

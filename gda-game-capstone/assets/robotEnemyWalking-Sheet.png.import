@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bphvuxclha51t"
-path="res://.godot/imported/maincharacter-Sheet.png-99bdc223c36da173027bf3cd314201e4.ctex"
+uid="uid://b40r8srhotv8w"
+path="res://.godot/imported/robotEnemyWalking-Sheet.png-94b2b68ae472ada28da795b69dca9249.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scripts/maincharacter-Sheet.png"
-dest_files=["res://.godot/imported/maincharacter-Sheet.png-99bdc223c36da173027bf3cd314201e4.ctex"]
+source_file="res://assets/robotEnemyWalking-Sheet.png"
+dest_files=["res://.godot/imported/robotEnemyWalking-Sheet.png-94b2b68ae472ada28da795b69dca9249.ctex"]
 
 [params]
 

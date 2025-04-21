@@ -59,13 +59,13 @@ func _physics_process(delta: float) -> void:
 			animated_sprite_2d.stop()
 		if Input.is_action_just_pressed("dash") and has_input_direction and cooldown_timer.is_stopped():
 			start_dash(direction)
-			animated_sprite_2d.play("daash")
-			playercol.disabled = true
+			if Input.is_action_pressed("up"):
+				animated_sprite_2d.play("Ndash")
+			else:
+				animated_sprite_2d.play("daash")
 		else:
 			playercol.disabled = false
-			
-		#sword.scale.x = 3.031
-		#sword.scale.y = 3.027
+
 
 	flip_sword()
 	move_and_slide()
@@ -89,10 +89,12 @@ func flip_sword():
 		sword.scale.x =3
 		sword.scale.y=-3
 func start_dash(direction: Vector2):
+	playercol.disabled = true
 	is_dashing = true
 	dash_timer = dash_duration
 	dash_direction = direction
 	cooldown_timer.stop()
+	#playercol.disabled = false
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

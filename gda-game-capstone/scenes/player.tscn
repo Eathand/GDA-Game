@@ -1,15 +1,36 @@
-[gd_scene load_steps=17 format=3 uid="uid://dw7pcx2ur8mps"]
+[gd_scene load_steps=23 format=3 uid="uid://dw7pcx2ur8mps"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_frp8s"]
-[ext_resource type="Texture2D" uid="uid://bphvuxclha51t" path="res://scripts/maincharacter-Sheet.png" id="2_5tfbi"]
-[ext_resource type="Texture2D" uid="uid://bjsbddrlrame8" path="res://scenes/dash-frame-Sheet.png" id="2_8juja"]
-[ext_resource type="Texture2D" uid="uid://8c0dabow04vf" path="res://scenes/maincharacter (1).png" id="2_8whyy"]
+[ext_resource type="Texture2D" uid="uid://bphvuxclha51t" path="res://assets/maincharacter-Sheet.png" id="2_5tfbi"]
+[ext_resource type="Texture2D" uid="uid://bjsbddrlrame8" path="res://assets/dash-frame-Sheet.png" id="2_8juja"]
+[ext_resource type="Texture2D" uid="uid://8c0dabow04vf" path="res://assets/maincharacter (1).png" id="2_8whyy"]
+[ext_resource type="Texture2D" uid="uid://clmnqn8jy54g1" path="res://assets/dash-up-Sheet.png" id="2_bqeyg"]
 [ext_resource type="PackedScene" uid="uid://cwpoiwpgp5ykn" path="res://scenes/sword.tscn" id="3_ro1b5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r0sq4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c313q"]
 radius = 16.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7g65"]
+atlas = ExtResource("2_bqeyg")
+region = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a22p3"]
+atlas = ExtResource("2_bqeyg")
+region = Rect2(1024, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_seiff"]
+atlas = ExtResource("2_bqeyg")
+region = Rect2(2048, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kn1qb"]
+atlas = ExtResource("2_bqeyg")
+region = Rect2(3072, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvhdk"]
+atlas = ExtResource("2_bqeyg")
+region = Rect2(4096, 0, 1024, 1024)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ynnvj"]
 atlas = ExtResource("2_8juja")
@@ -45,6 +66,26 @@ region = Rect2(1024, 0, 512, 512)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_umv7s"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7g65")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a22p3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_seiff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kn1qb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvhdk")
+}],
+"loop": true,
+"name": &"Ndash",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ynnvj")
@@ -106,8 +147,8 @@ one_shot = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.171, 0.171)
 sprite_frames = SubResource("SpriteFrames_umv7s")
-animation = &"daash"
-frame_progress = 0.280054
+animation = &"Ndash"
+frame_progress = 0.770287
 
 [node name="Timer" type="Timer" parent="."]
 

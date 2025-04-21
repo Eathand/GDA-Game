@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3ucxrla7wnae"
-path="res://.godot/imported/weaponsmear-Sheet (1).png-39c558f413ff123c319284621588b4c2.ctex"
+uid="uid://bphvuxclha51t"
+path="res://.godot/imported/maincharacter-Sheet.png-d34f8aaa927fb5469625f25c7e0fb7c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/weaponsmear-Sheet (1).png"
-dest_files=["res://.godot/imported/weaponsmear-Sheet (1).png-39c558f413ff123c319284621588b4c2.ctex"]
+source_file="res://assets/maincharacter-Sheet.png"
+dest_files=["res://.godot/imported/maincharacter-Sheet.png-d34f8aaa927fb5469625f25c7e0fb7c3.ctex"]
 
 [params]
 

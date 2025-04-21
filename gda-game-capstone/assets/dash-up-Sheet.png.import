@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b40r8srhotv8w"
-path="res://.godot/imported/robotEnemyWalking-Sheet.png-e04f0ac58261a615d00c95e0719ceac3.ctex"
+uid="uid://clmnqn8jy54g1"
+path="res://.godot/imported/dash-up-Sheet.png-d7c1764c4a850870ee8778ba21709cce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scripts/robotEnemyWalking-Sheet.png"
-dest_files=["res://.godot/imported/robotEnemyWalking-Sheet.png-e04f0ac58261a615d00c95e0719ceac3.ctex"]
+source_file="res://assets/dash-up-Sheet.png"
+dest_files=["res://.godot/imported/dash-up-Sheet.png-d7c1764c4a850870ee8778ba21709cce.ctex"]
 
 [params]
 
