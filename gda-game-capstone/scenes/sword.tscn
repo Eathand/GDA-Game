@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://cwpoiwpgp5ykn"]
+[gd_scene load_steps=14 format=3 uid="uid://cwpoiwpgp5ykn"]
 
 [ext_resource type="Script" path="res://scripts/sword.gd" id="1_idhua"]
 [ext_resource type="Texture2D" uid="uid://b3ucxrla7wnae" path="res://assets/weaponsmear-Sheet (1).png" id="2_xr35n"]
 [ext_resource type="Texture2D" uid="uid://ppg6rcks6bdd" path="res://assets/weapon.png" id="3_r7xet"]
+[ext_resource type="AudioStream" uid="uid://b0qfl46y13yqq" path="res://SFX/blood-sword-hit.wav" id="4_7k0gy"]
+[ext_resource type="AudioStream" uid="uid://ovabno1bmqf3" path="res://SFX/swing-and-miss.wav" id="5_kxgrt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_je24y"]
 radius = 0.25
@@ -306,5 +308,11 @@ rotation = -0.340339
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_r7xet")
 flip_h = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_7k0gy")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_kxgrt")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
