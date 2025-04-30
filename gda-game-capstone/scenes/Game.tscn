@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b7kuf7ku4t1sb" path="res://tileset/0x72_DungeonTilesetII_v1.7/atlas_floor-16x16.png" id="2_7n6nk"]
 [ext_resource type="Texture2D" uid="uid://cbqg5dxn4kvbc" path="res://tileset/0x72_DungeonTilesetII_v1.7/atlas_walls_high-16x32.png" id="3_602am"]
 [ext_resource type="Texture2D" uid="uid://778ae7qkf6aw" path="res://tileset/0x72_DungeonTilesetII_v1.7/atlas_walls_low-16x16.png" id="4_eq54q"]
-[ext_resource type="PackedScene" uid="uid://dw7pcx2ur8mps" path="res://scenes/player.tscn" id="5_nnd1r"]
+[ext_resource type="PackedScene" uid="uid://dteijcr0f8jg1" path="res://scenes/player.tscn" id="5_nnd1r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jl4hk"]
 texture = ExtResource("1_2qaq0")
