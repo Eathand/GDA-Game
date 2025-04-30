@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bnjwa4havlmml"]
+[gd_scene load_steps=6 format=3 uid="uid://bnjwa4havlmml"]
 
+[ext_resource type="Script" path="res://start_screen.gd" id="1_je1eg"]
 [ext_resource type="Texture2D" uid="uid://cyhh2p7dh4j0d" path="res://scenes/mountainbackground (1).png" id="1_njxig"]
 [ext_resource type="Texture2D" uid="uid://bnngpsh86ulei" path="res://scenes/mainmmenu.png" id="2_0pidm"]
 [ext_resource type="Texture2D" uid="uid://dlmw3fix3s65b" path="res://scenes/b-trees.png" id="2_uqxej"]
+[ext_resource type="PackedScene" uid="uid://iec4vfatj7i0" path="res://temp character.tscn" id="4_t8x24"]
 
 [node name="Start screen" type="Node2D"]
+script = ExtResource("1_je1eg")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -19,6 +22,7 @@ centered = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 texture_filter = 1
+motion_scale = Vector2(0.5, 0.5)
 motion_mirroring = Vector2(1920, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
@@ -28,9 +32,13 @@ texture = ExtResource("2_uqxej")
 
 [node name="towns building" type="ParallaxLayer" parent="ParallaxBackground"]
 texture_filter = 1
+motion_scale = Vector2(0.75, 0.75)
 motion_mirroring = Vector2(1920, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/towns building"]
 scale = Vector2(0.46875, 0.522461)
 texture = ExtResource("2_0pidm")
 centered = false
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("4_t8x24")]
+position = Vector2(64, 876)
