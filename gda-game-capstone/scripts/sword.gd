@@ -18,7 +18,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body is Mob and (area_2d.visible == true):
+	if body is Mob and (area_2d.visible == true) or Boss:
 		body.take_damage(5)
 		print(body.current_health)
 		audio_stream_player_2d.play()
