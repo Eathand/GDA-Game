@@ -166,7 +166,7 @@ animations = [{
 }]
 
 [node name="Boss" type="CharacterBody2D"]
-scale = Vector2(0.465, 0.465)
+scale = Vector2(0.3, 0.3)
 script = ExtResource("1_145li")
 slash_scene = ExtResource("2_7i3lq")
 
