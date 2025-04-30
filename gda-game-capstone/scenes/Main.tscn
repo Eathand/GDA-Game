@@ -1,13 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://bny3a70fkxcil"]
+[gd_scene load_steps=13 format=3 uid="uid://u6jsd1u1khm8"]
 
-[ext_resource type="Texture2D" uid="uid://b6ux81xfksquv" path="res://tileset/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7.png" id="1_2qaq0"]
-[ext_resource type="Texture2D" uid="uid://b7kuf7ku4t1sb" path="res://tileset/0x72_DungeonTilesetII_v1.7/atlas_floor-16x16.png" id="2_7n6nk"]
-[ext_resource type="Texture2D" uid="uid://cbqg5dxn4kvbc" path="res://tileset/0x72_DungeonTilesetII_v1.7/atlas_walls_high-16x32.png" id="3_602am"]
-[ext_resource type="Texture2D" uid="uid://778ae7qkf6aw" path="res://tileset/0x72_DungeonTilesetII_v1.7/atlas_walls_low-16x16.png" id="4_eq54q"]
-[ext_resource type="PackedScene" uid="uid://dw7pcx2ur8mps" path="res://scenes/player.tscn" id="5_nnd1r"]
+[ext_resource type="Texture2D" uid="uid://b6ux81xfksquv" path="res://tileset/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7.png" id="1_kb3yc"]
+[ext_resource type="Texture2D" uid="uid://b7kuf7ku4t1sb" path="res://tileset/0x72_DungeonTilesetII_v1.7/atlas_floor-16x16.png" id="2_841kv"]
+[ext_resource type="Texture2D" uid="uid://cbqg5dxn4kvbc" path="res://tileset/0x72_DungeonTilesetII_v1.7/atlas_walls_high-16x32.png" id="3_loqeb"]
+[ext_resource type="Texture2D" uid="uid://778ae7qkf6aw" path="res://tileset/0x72_DungeonTilesetII_v1.7/atlas_walls_low-16x16.png" id="4_vcqlc"]
+[ext_resource type="PackedScene" uid="uid://dw7pcx2ur8mps" path="res://scenes/player.tscn" id="6_1jdqb"]
+[ext_resource type="PackedScene" uid="uid://bdav71f162way" path="res://scenes/mob.tscn" id="7_3b8st"]
+[ext_resource type="PackedScene" uid="uid://c4agpyawtrg1g" path="res://scenes/boss.tscn" id="7_7wip2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jl4hk"]
-texture = ExtResource("1_2qaq0")
+texture = ExtResource("1_kb3yc")
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
@@ -640,7 +642,7 @@ texture = ExtResource("1_2qaq0")
 16:28/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ix65x"]
-texture = ExtResource("2_7n6nk")
+texture = ExtResource("2_841kv")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -688,7 +690,7 @@ texture = ExtResource("2_7n6nk")
 5:6/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_47d8p"]
-texture = ExtResource("3_602am")
+texture = ExtResource("3_loqeb")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -837,7 +839,7 @@ texture = ExtResource("3_602am")
 23:7/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_llbmy"]
-texture = ExtResource("4_eq54q")
+texture = ExtResource("4_vcqlc")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -899,7 +901,11 @@ tile_set = SubResource("TileSet_c780c")
 format = 2
 layer_0/tile_data = PackedInt32Array(1966135, 131074, 5, 1966134, 131074, 5, 1966133, 131074, 5, 1966132, 131074, 5, 1966131, 131074, 5, 1900594, 131074, 5, 1900593, 131074, 5, 1900592, 131074, 5, 1900591, 131074, 5, 1900590, 131074, 5, 1900589, 131074, 5, 1900588, 131074, 5, 1900587, 131074, 5, 1900586, 131074, 5, 1900585, 131074, 5, 1900584, 131074, 5, 1966119, 131074, 5, 2031654, 131074, 5, 2097189, 131074, 5, 2097188, 131074, 5, 2097187, 131074, 5, 2031652, 131074, 5, 1966117, 131074, 5, 1900582, 131074, 5, 1900583, 131074, 5, 1835048, 131074, 5, 1835049, 131074, 5, 1769514, 131074, 5, 1769515, 131074, 5, 1703980, 131074, 5, 1703981, 131074, 5, 1638446, 131074, 5, 1638447, 131074, 5, 1638448, 131074, 5, 1638449, 131074, 5, 1638450, 131074, 5, 1638451, 131074, 5, 1638452, 131074, 5, 1638453, 131074, 5, 1638454, 131074, 5, 1638455, 131074, 5, 1638456, 131074, 5, 1638457, 131074, 5, 1638458, 131074, 5, 1638459, 131074, 5, 1703996, 131074, 5, 1703997, 131074, 5, 1769534, 131074, 5, 1769535, 131074, 5, 1835072, 131074, 5, 1900609, 131074, 5, 1900610, 131074, 5, 1966147, 131074, 5, 2031683, 131074, 5, 2097219, 131074, 5, 2162755, 131074, 5, 2228290, 131074, 5, 2228289, 131074, 5, 2228288, 131074, 5, 2293823, 131074, 5, 2293822, 131074, 5, 2293821, 131074, 5, 2293820, 131074, 5, 2293819, 131074, 5, 2228282, 131074, 5, 2228281, 131074, 5, 2228280, 131074, 5, 2162743, 131074, 5, 2097206, 131074, 5, 2097205, 131074, 5, 2031668, 131074, 5, 1966130, 131074, 5, 1835056, 131074, 5, 1769520, 131074, 5, 1769519, 131074, 5, 1703983, 131074, 5, 1703982, 131074, 5, 1769517, 131074, 5, 1769516, 131074, 5, 1835051, 131074, 5, 1835050, 131074, 5)
 
-[node name="Area2D" parent="." instance=ExtResource("5_nnd1r")]
-position = Vector2(800, 328)
-acceleration = 10000
-deceleration = 10000
+[node name="Boss" parent="." instance=ExtResource("7_7wip2")]
+position = Vector2(759, 212)
+
+[node name="Player" parent="." instance=ExtResource("6_1jdqb")]
+position = Vector2(233, 496)
+
+[node name="Mob" parent="." instance=ExtResource("7_3b8st")]
+position = Vector2(-89, 252)
