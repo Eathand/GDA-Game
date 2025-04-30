@@ -4647,3 +4647,4 @@ tile_set = SubResource("TileSet_upx7w")
 
 [node name="Player" parent="TileMap2" instance=ExtResource("14_6inya")]
 position = Vector2(421, 498)
+acceleration = 1000000
