@@ -37,7 +37,10 @@ func take_damage(amount: int):
 		current_health = 0
 		die()
 	
-
+func heal(amount: int):
+	current_health = min(current_health + amount, max_health)
+	print("Healed! Current health: %d" % current_health)
+	
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("test_damage"):
 		take_damage(5)
