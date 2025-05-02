@@ -1,0 +1,82 @@
+[gd_scene load_steps=11 format=3 uid="uid://c64f7mewxonml"]
+
+[ext_resource type="PackedScene" uid="uid://qwyw4hoexhl5" path="res://start.tscn" id="1_l233a"]
+[ext_resource type="PackedScene" uid="uid://dteijcr0f8jg1" path="res://scenes/player.tscn" id="2_wqvvs"]
+[ext_resource type="PackedScene" uid="uid://b42nnb0027y2f" path="res://scenes/teleport.tscn" id="3_eptpl"]
+[ext_resource type="PackedScene" uid="uid://y883gjm33r4v" path="res://map6.tscn" id="4_s61ok"]
+[ext_resource type="PackedScene" uid="uid://d2k8fx0sr8yw0" path="res://checkpoint.tscn" id="5_d83bx"]
+[ext_resource type="PackedScene" uid="uid://dav25cpsp7fmb" path="res://room7.tscn" id="6_oly7d"]
+[ext_resource type="PackedScene" uid="uid://n5r6o2bqqppb" path="res://maze.tscn" id="7_nluve"]
+[ext_resource type="PackedScene" uid="uid://ddvuol6rr7m1o" path="res://map8.tscn" id="8_t1rcr"]
+[ext_resource type="PackedScene" uid="uid://bdav71f162way" path="res://scenes/mob.tscn" id="9_v2yoi"]
+[ext_resource type="PackedScene" uid="uid://c4agpyawtrg1g" path="res://scenes/boss.tscn" id="10_vowgc"]
+
+[node name="Realtest" type="Node2D"]
+
+[node name="Start" parent="." instance=ExtResource("1_l233a")]
+position = Vector2(841, 369)
+
+[node name="Player" parent="." instance=ExtResource("2_wqvvs")]
+position = Vector2(1095, 546)
+
+[node name="Teleport_start" parent="." instance=ExtResource("3_eptpl")]
+position = Vector2(1286, 554)
+new_position_x = 54600
+new_position_y = -7350
+
+[node name="Teleport_map6" parent="." instance=ExtResource("3_eptpl")]
+position = Vector2(56449, -7337)
+new_position_x = 55450
+new_position_y = -13025
+
+[node name="Node2D" parent="." instance=ExtResource("4_s61ok")]
+position = Vector2(54466, -7810)
+
+[node name="Node2D2" parent="." instance=ExtResource("5_d83bx")]
+position = Vector2(55265, -13218)
+
+[node name="TP_chk1" parent="." instance=ExtResource("3_eptpl")]
+position = Vector2(55745, -13012)
+new_position_x = 54825
+new_position_y = -16105
+
+[node name="Node2D3" parent="." instance=ExtResource("6_oly7d")]
+position = Vector2(54690, -16594)
+
+[node name="TP_rm7" parent="." instance=ExtResource("3_eptpl")]
+position = Vector2(56568, -16108)
+new_position_x = 55370
+new_position_y = -23280
+
+[node name="Node2D4" parent="." instance=ExtResource("7_nluve")]
+position = Vector2(54860, -21285)
+
+[node name="Node2D5" parent="." instance=ExtResource("5_d83bx")]
+position = Vector2(55201, -23504)
+
+[node name="TP_chk2" parent="." instance=ExtResource("3_eptpl")]
+position = Vector2(55681, -23299)
+new_position_x = 55790
+new_position_y = -19147
+
+[node name="TP_maze" parent="." instance=ExtResource("3_eptpl")]
+position = Vector2(55639, -20771)
+new_position_x = 55325
+new_position_y = -25710
+
+[node name="Node2D6" parent="." instance=ExtResource("8_t1rcr")]
+position = Vector2(59502, -23470)
+
+[node name="Node2D7" parent="." instance=ExtResource("5_d83bx")]
+position = Vector2(55161, -25936)
+
+[node name="TP_chk3" parent="." instance=ExtResource("3_eptpl")]
+position = Vector2(55645, -25731)
+new_position_x = 59770
+new_position_y = -22660
+
+[node name="Mob" parent="." instance=ExtResource("9_v2yoi")]
+position = Vector2(1458, 443)
+
+[node name="Boss" parent="." instance=ExtResource("10_vowgc")]
+position = Vector2(1271, 301)

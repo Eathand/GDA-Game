@@ -167,6 +167,8 @@ animations = [{
 
 [node name="Boss" type="CharacterBody2D"]
 scale = Vector2(0.3, 0.3)
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_145li")
 slash_scene = ExtResource("2_7i3lq")
 

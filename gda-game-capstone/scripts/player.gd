@@ -7,7 +7,8 @@ var speed := 300
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 
-@onready var playercol: CollisionShape2D = $playercol
+
+@onready var playercol = $"."
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
@@ -81,7 +82,7 @@ func _physics_process(delta: float) -> void:
 				animated_sprite_2d.play("SWdash")
 				animated_sprite_2d.flip_h = true
 		else:
-			playercol.disabled = false
+			playercol.set_collision_mask_value(3, true)
 
 
 	flip_sword()
@@ -106,7 +107,7 @@ func flip_sword():
 		sword.scale.x =3
 		sword.scale.y=-3
 func start_dash(direction: Vector2):
-	playercol.disabled = true
+	playercol.set_collision_mask_value(3, false)
 	is_dashing = true
 	dash_timer = dash_duration
 	dash_direction = direction

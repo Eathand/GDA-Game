@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://clmnqn8jy54g1" path="res://assets/dash-up-Sheet.png" id="2_bqeyg"]
 [ext_resource type="Texture2D" uid="uid://2w7evahh4624" path="res://assets/dash-diag-up-Sheet.png" id="2_y52sb"]
 [ext_resource type="Texture2D" uid="uid://cnfe0smg6i3yt" path="res://assets/dash-down-Sheet.png" id="3_1teot"]
-[ext_resource type="PackedScene" path="res://scenes/sword.tscn" id="3_ro1b5"]
+[ext_resource type="PackedScene" uid="uid://cwpoiwpgp5ykn" path="res://scenes/sword.tscn" id="3_ro1b5"]
 [ext_resource type="Texture2D" uid="uid://dxgele8nlp3qs" path="res://assets/dash-diag-down-Sheet.png" id="4_hn761"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r0sq4"]
@@ -245,6 +245,9 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+z_index = 1
+collision_layer = 2
+collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_frp8s")
 acceleration = 100000000
@@ -281,6 +284,7 @@ flip_h = true
 scale = Vector2(-1, 1)
 
 [node name="Sword" parent="root" instance=ExtResource("3_ro1b5")]
+visible = false
 position = Vector2(-13, 1)
 rotation = 1.1973
 scale = Vector2(3, 3)
