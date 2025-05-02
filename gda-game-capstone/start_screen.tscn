@@ -20,12 +20,12 @@ scale = Vector2(0.469482, 0.525879)
 texture = ExtResource("1_njxig")
 centered = false
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="trees" type="ParallaxLayer" parent="ParallaxBackground"]
 texture_filter = 1
 motion_scale = Vector2(0.5, 0.5)
 motion_mirroring = Vector2(1920, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/trees"]
 position = Vector2(961, 534.5)
 scale = Vector2(0.468262, 0.525879)
 texture = ExtResource("2_uqxej")

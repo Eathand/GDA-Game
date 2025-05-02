@@ -22,8 +22,8 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="PanelContainer"]
-position = Vector2(573, 244)
-scale = Vector2(1.77734, 1.58203)
+position = Vector2(421, 167)
+scale = Vector2(1.0918, 0.868164)
 texture = ExtResource("1_ojdvt")
 centered = false
 metadata/_edit_group_ = true
