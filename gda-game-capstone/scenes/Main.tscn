@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://u6jsd1u1khm8"]
+[gd_scene load_steps=14 format=3 uid="uid://u6jsd1u1khm8"]
 
 [ext_resource type="Texture2D" uid="uid://b6ux81xfksquv" path="res://tileset/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7.png" id="1_kb3yc"]
 [ext_resource type="Texture2D" uid="uid://b7kuf7ku4t1sb" path="res://tileset/0x72_DungeonTilesetII_v1.7/atlas_floor-16x16.png" id="2_841kv"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dteijcr0f8jg1" path="res://scenes/player.tscn" id="6_1jdqb"]
 [ext_resource type="PackedScene" uid="uid://bdav71f162way" path="res://scenes/mob.tscn" id="7_3b8st"]
 [ext_resource type="PackedScene" uid="uid://c4agpyawtrg1g" path="res://scenes/boss.tscn" id="7_7wip2"]
+[ext_resource type="PackedScene" uid="uid://b42nnb0027y2f" path="res://scenes/teleport.tscn" id="8_yeew5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jl4hk"]
 texture = ExtResource("1_kb3yc")
@@ -909,3 +910,6 @@ position = Vector2(233, 496)
 
 [node name="Mob" parent="." instance=ExtResource("7_3b8st")]
 position = Vector2(-89, 252)
+
+[node name="Teleport" parent="." instance=ExtResource("8_yeew5")]
+position = Vector2(680, 549)

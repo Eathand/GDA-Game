@@ -37,7 +37,7 @@ func take_damage(amount: int):
 		die() 
 
 func get_global_player_position() -> Vector2:
-	var Plaayer = get_tree().root.get_node_or_null("Game/Player")
+	var Plaayer = get_tree().root.get_node_or_null("Realtest/Player")
 	if Plaayer:
 		return Plaayer.global_position
 	else:

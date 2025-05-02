@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://d2k8fx0sr8yw0"]
+[gd_scene load_steps=42 format=4 uid="uid://d2k8fx0sr8yw0"]
 
 [ext_resource type="Script" path="res://checkpoint.gd" id="1_66xbm"]
 [ext_resource type="Texture2D" uid="uid://b6ux81xfksquv" path="res://tileset/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7.png" id="1_pom56"]
@@ -18,7 +18,6 @@
 [ext_resource type="Texture2D" uid="uid://4qsas2i08rmj" path="res://tileset/Water/water_tileset5.png" id="15_0ylnj"]
 [ext_resource type="Texture2D" uid="uid://bqs1abvv8s01f" path="res://tileset/Water/water_tileset6.png" id="16_87pof"]
 [ext_resource type="Texture2D" uid="uid://b4ub3sbc8ui25" path="res://CampFireFinished.png" id="17_w874k"]
-[ext_resource type="PackedScene" uid="uid://dteijcr0f8jg1" path="res://scenes/player.tscn" id="19_sattb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3mod4"]
 texture = ExtResource("1_pom56")
@@ -4223,6 +4222,3 @@ tile_set = SubResource("TileSet_sdv47")
 position = Vector2(322, 197)
 sprite_frames = SubResource("SpriteFrames_b0xdj")
 frame_progress = 0.712166
-
-[node name="Player" parent="." instance=ExtResource("19_sattb")]
-position = Vector2(202, 201)

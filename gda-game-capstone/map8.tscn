@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://ddvuol6rr7m1o"]
+[gd_scene load_steps=28 format=4 uid="uid://ddvuol6rr7m1o"]
 
 [ext_resource type="Texture2D" uid="uid://b6ux81xfksquv" path="res://tileset/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7.png" id="1_wmaiy"]
 [ext_resource type="Texture2D" uid="uid://b7kuf7ku4t1sb" path="res://tileset/0x72_DungeonTilesetII_v1.7/atlas_floor-16x16.png" id="2_hox3a"]
@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://41qkgmxx60ua" path="res://tileset/2D Pixel Dungeon Asset Pack/Dungeon_Tileset_at.png" id="11_5nr4o"]
 [ext_resource type="Texture2D" uid="uid://778ae7qkf6aw" path="res://tileset/0x72_DungeonTilesetII_v1.7/atlas_walls_low-16x16.png" id="12_sabr7"]
 [ext_resource type="Texture2D" uid="uid://b8dl1r6ospgrt" path="res://tileset/Water/water_tileset1.png" id="13_sy2ws"]
-[ext_resource type="PackedScene" uid="uid://dteijcr0f8jg1" path="res://scenes/player.tscn" id="14_1xn6r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3cdxd"]
 texture = ExtResource("1_wmaiy")
@@ -4650,6 +4649,3 @@ tile_set = SubResource("TileSet_0oyvh")
 scale = Vector2(1.01441, 1.01726)
 tile_map_data = PackedByteArray("AACDADAADAAMAAwAAACDADEADAAMAA0AAACCADAADAALAAwAAACCADEADAALAA0AAACBADAADAAKAAwAAACBADEADAAKAA0AAAA=")
 tile_set = SubResource("TileSet_0oyvh")
-
-[node name="Player" parent="TileMap2" instance=ExtResource("14_1xn6r")]
-position = Vector2(296, 813)
