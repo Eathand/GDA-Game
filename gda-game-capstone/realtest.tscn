@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c64f7mewxonml"]
+[gd_scene load_steps=11 format=3 uid="uid://ds7lvl3gqg7fm"]
 
 [ext_resource type="PackedScene" uid="uid://qwyw4hoexhl5" path="res://start.tscn" id="1_l233a"]
 [ext_resource type="PackedScene" uid="uid://dteijcr0f8jg1" path="res://scenes/player.tscn" id="2_wqvvs"]
@@ -17,9 +17,10 @@
 position = Vector2(841, 369)
 
 [node name="Player" parent="." instance=ExtResource("2_wqvvs")]
-position = Vector2(1095, 546)
+position = Vector2(49, 92)
 
 [node name="Teleport_start" parent="." instance=ExtResource("3_eptpl")]
+visible = false
 position = Vector2(1286, 554)
 new_position_x = 54600
 new_position_y = -7350
@@ -36,6 +37,7 @@ position = Vector2(54466, -7810)
 position = Vector2(55265, -13218)
 
 [node name="TP_chk1" parent="." instance=ExtResource("3_eptpl")]
+visible = false
 position = Vector2(55745, -13012)
 new_position_x = 54825
 new_position_y = -16105
@@ -44,6 +46,7 @@ new_position_y = -16105
 position = Vector2(54690, -16594)
 
 [node name="TP_rm7" parent="." instance=ExtResource("3_eptpl")]
+visible = false
 position = Vector2(56568, -16108)
 new_position_x = 55370
 new_position_y = -23280
@@ -55,11 +58,13 @@ position = Vector2(54860, -21285)
 position = Vector2(55201, -23504)
 
 [node name="TP_chk2" parent="." instance=ExtResource("3_eptpl")]
+visible = false
 position = Vector2(55681, -23299)
 new_position_x = 55790
 new_position_y = -19147
 
 [node name="TP_maze" parent="." instance=ExtResource("3_eptpl")]
+visible = false
 position = Vector2(55639, -20771)
 new_position_x = 55325
 new_position_y = -25710
@@ -71,6 +76,7 @@ position = Vector2(59502, -23470)
 position = Vector2(55161, -25936)
 
 [node name="TP_chk3" parent="." instance=ExtResource("3_eptpl")]
+visible = false
 position = Vector2(55645, -25731)
 new_position_x = 59770
 new_position_y = -22660
@@ -79,4 +85,4 @@ new_position_y = -22660
 position = Vector2(1458, 443)
 
 [node name="Boss" parent="." instance=ExtResource("10_vowgc")]
-position = Vector2(1271, 301)
+position = Vector2(163, 53)

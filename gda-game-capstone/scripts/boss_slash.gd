@@ -1,5 +1,5 @@
 extends Area2D
-
+class_name BossSlash
 @onready var damage: int = 10
 @onready var speed: float = 400.0
 @export var life: float = 1.0

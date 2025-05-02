@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://frgvmbwm3bfm"]
 
 [ext_resource type="Script" path="res://scripts/boss_slash.gd" id="1_os7fe"]
-[ext_resource type="Texture2D" uid="uid://dl0m68qoelu7s" path="res://assets/blade_wave.png" id="2_04dlx"]
+[ext_resource type="Texture2D" uid="uid://d0iv3kc2yx2ne" path="res://assets/bullet.png" id="2_ld0w0"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_pejmu"]
-radius = 255.049
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ygyfr"]
+size = Vector2(337.5, 77.5)
 
 [node name="Area2D" type="Area2D"]
 scale = Vector2(0.2, 0.2)
@@ -13,10 +13,11 @@ collision_mask = 3
 script = ExtResource("1_os7fe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_pejmu")
+position = Vector2(-8.74999, -3.75)
+shape = SubResource("RectangleShape2D_ygyfr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_04dlx")
+texture = ExtResource("2_ld0w0")
 flip_h = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
