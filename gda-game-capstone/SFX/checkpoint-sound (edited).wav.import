@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b84wlcj88uyjf"
+path="res://.godot/imported/checkpoint-sound (edited).wav-cac5a56ba3f59900f09b207aa885ea22.sample"
+
+[deps]
+
+source_file="res://SFX/checkpoint-sound (edited).wav"
+dest_files=["res://.godot/imported/checkpoint-sound (edited).wav-cac5a56ba3f59900f09b207aa885ea22.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -274,8 +274,7 @@ one_shot = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.171, 0.171)
 sprite_frames = SubResource("SpriteFrames_umv7s")
-animation = &"SWdash"
-frame_progress = 0.751808
+animation = &"walk"
 flip_h = true
 
 [node name="Timer" type="Timer" parent="."]
