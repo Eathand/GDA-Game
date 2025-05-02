@@ -55,7 +55,7 @@ func start_attack():
 	is_attacking = true
 	atkcd = atkcdtime
 	#windup
-	animated_sprite_2d.play("attack1")
+	animated_sprite_2d.play("attack2")
 	attack_slash()
 	attack.monitoring = true
 	await get_tree().create_timer(1).timeout
@@ -72,6 +72,8 @@ func attack_slash() -> void:
 	get_parent().add_child(slash)
 	slash.global_position = global_position
 	var dir = (player.global_position - global_position).normalized()
+	slash.position.x = self.position.x -150
+	slash.position.y = self.position.y +20
 	slash.direction = dir
 	slash.rotation = dir.angle()
 

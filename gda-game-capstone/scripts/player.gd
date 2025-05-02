@@ -9,7 +9,7 @@ var speed := 300
 
 
 @onready var playercol = $"."
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+#@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 @onready var sword: Sword = $root/Sword

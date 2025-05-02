@@ -17,7 +17,7 @@
 position = Vector2(841, 369)
 
 [node name="Player" parent="." instance=ExtResource("2_wqvvs")]
-position = Vector2(1095, 546)
+position = Vector2(49, 92)
 
 [node name="Teleport_start" parent="." instance=ExtResource("3_eptpl")]
 visible = false
@@ -85,4 +85,4 @@ new_position_y = -22660
 position = Vector2(1458, 443)
 
 [node name="Boss" parent="." instance=ExtResource("10_vowgc")]
-position = Vector2(1271, 301)
+position = Vector2(163, 53)
