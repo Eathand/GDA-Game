@@ -45,3 +45,7 @@ func get_global_player_position() -> Vector2:
 		return global_position 
 
 	
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.

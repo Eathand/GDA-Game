@@ -6,7 +6,7 @@ class_name Boss
 @export var atkdmg = 10
 @export var max_health: int = 100
 @export var slash_scene: PackedScene
-
+@export var close_range = 100
 
 var player = Node2D
 var atkcd = 0
@@ -14,13 +14,24 @@ var current_health:= max_health
 var is_attacking: bool = false
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack: Area2D = $attack
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 func _physics_process(delta: float) -> void:
+	if velocity.x > 0:
+		animated_sprite_2d.flip_h = true
+	else:
+		animated_sprite_2d.flip_h = false
+	
 	if player == null:
+		return
+	if is_attacking:
 		return
 	atkcd = max(0.0, atkcd - delta)
 	var distance = global_position.distance_to(player.global_position)
+	if distance <= rangee:
+		melee_attack()
+		
 	#var direction = (player.global_position - global_position).normalized()
 	if is_attacking:
 		velocity = Vector2.ZERO
@@ -29,13 +40,19 @@ func _physics_process(delta: float) -> void:
 		if distance > rangee:
 			var direction = (player.global_position - global_position).normalized()
 			velocity = direction * speed
-		#move_and_slide()
-		#animtion player 
-		else:
-			velocity = Vector2.ZERO
-		#move_and_slide()
 			if atkcd <= 0.0:
 				start_attack()
+					
+					
+		#move_and_slide()
+
+		else:
+			velocity = Vector2.ZERO
+
+			
+		#move_and_slide()
+			#if atkcd <= 0.0:
+				#start_attack()
 	move_and_slide()
 	atkcd -= delta
 
@@ -54,13 +71,12 @@ func on_attack_hit(body: Node):
 func start_attack():
 	is_attacking = true
 	atkcd = atkcdtime
-	#windup
 	animated_sprite_2d.play("attack2")
-	attack_slash()
+	#attack_slash()
 	attack.monitoring = true
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(0.6153846153846154).timeout
 	attack_slash()
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(0.3846153846153846).timeout
 	attack.monitoring = false
 	animated_sprite_2d.play("idle")
 
@@ -72,16 +88,35 @@ func attack_slash() -> void:
 	get_parent().add_child(slash)
 	slash.global_position = global_position
 	var dir = (player.global_position - global_position).normalized()
-	slash.position.x = self.position.x -150
-	slash.position.y = self.position.y +20
+	if velocity.x > 0:
+		slash.position.x = self.position.x +150
+		slash.position.y = self.position.y +20
+	else:
+		slash.position.x = self.position.x -150
+		slash.position.y = self.position.y +20
 	slash.direction = dir
 	slash.rotation = dir.angle()
 
-
+func melee_attack():
+	is_attacking = true 
+	attack.monitoring = true
+	animated_sprite_2d.play("attack1")
+	animation_player.play("melee")
+	await get_tree().create_timer(1.0).timeout
+	attack.monitoring = false
+	is_attacking = false
+	
 func _on_attack_body_entered(body: Node2D) -> void:
-	pass
+	if body is Player:
+		body.take_damage(50)
+		body.dmgcool.start()
+		attack.monitoring = false
+
+		print(body.current_health)
 func take_damage(amount: int):
 	current_health -= amount
 	if current_health <= 0:
 		current_health = 0 
 		die() 
+func check_attack_collision():
+	pass
