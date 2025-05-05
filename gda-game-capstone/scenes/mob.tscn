@@ -88,6 +88,7 @@ one_way_collision_margin = 77.5
 
 [node name="Area2D" type="Area2D" parent="."]
 scale = Vector2(1.5, 1.5)
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_w4d6j")

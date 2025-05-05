@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://c4agpyawtrg1g"]
+[gd_scene load_steps=46 format=3 uid="uid://c4agpyawtrg1g"]
 
 [ext_resource type="Script" path="res://scripts/character_body_2d.gd" id="1_145li"]
 [ext_resource type="PackedScene" uid="uid://frgvmbwm3bfm" path="res://scenes/boss_slash.tscn" id="2_7i3lq"]
@@ -10,8 +10,9 @@
 radius = 44.0
 height = 208.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ldttu"]
-radius = 34.0465
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o41sf"]
+radius = 4.66667
+height = 67.1873
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m106n"]
 atlas = ExtResource("3_m5vrs")
@@ -184,7 +185,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack1",
-"speed": 5.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -231,7 +232,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack2",
-"speed": 5.0
+"speed": 13.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -269,6 +270,67 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_v5y1o"]
+resource_name = "melee"
+step = 0.1111
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("attack/CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0556, 0.1111, 0.4444, 0.5555, 0.6666, 0.7777),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(18.6667, 30.6667), Vector2(-25.3333, 6.66667), Vector2(24, -18), Vector2(33.3333, -6.66667), Vector2(34, 18), Vector2(-37.3333, -0.666666), Vector2(26, -12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("attack/CollisionShape2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0556, 0.1111, 0.4444, 0.5555, 0.6666, 0.7777),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.961708, 1.77314, 3.86385, 4.51169, 5.19445, 8.02667, 10.575]
+}
+
+[sub_resource type="Animation" id="Animation_lw4sg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("attack/CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("attack/CollisionShape2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.961708]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_beoc1"]
+_data = {
+"RESET": SubResource("Animation_lw4sg"),
+"melee": SubResource("Animation_v5y1o")
+}
+
 [node name="Boss" type="CharacterBody2D"]
 scale = Vector2(0.3, 0.3)
 collision_layer = 4
@@ -277,18 +339,28 @@ script = ExtResource("1_145li")
 slash_scene = ExtResource("2_7i3lq")
 
 [node name="actualcol" type="CollisionShape2D" parent="."]
+position = Vector2(3.33333, 50)
 shape = SubResource("CapsuleShape2D_6s4um")
 
 [node name="attack" type="Area2D" parent="."]
 scale = Vector2(5, 5)
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack"]
-shape = SubResource("CircleShape2D_ldttu")
+rotation = -0.961708
+shape = SubResource("CapsuleShape2D_o41sf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_g55w5")
-animation = &"attack2"
+animation = &"attack1"
+frame = 3
+frame_progress = 0.422998
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_beoc1")
+}
 
 [connection signal="body_entered" from="attack" to="." method="_on_attack_body_entered"]
