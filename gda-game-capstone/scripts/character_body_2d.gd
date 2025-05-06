@@ -7,8 +7,8 @@ class_name Boss
 @export var max_health: int = 100
 @export var slash_scene: PackedScene
 @export var close_range = 100
-
-var player = Node2D
+var boss_position = $".".global_position.x
+@onready var player = get_node("realtest/Player")
 var atkcd = 0
 var current_health:= max_health
 var is_attacking: bool = false
@@ -20,7 +20,7 @@ var is_attacking: bool = false
 func _physics_process(delta: float) -> void:
 	if velocity.x > 0:
 		animated_sprite_2d.flip_h = true
-	else:
+	if velocity.x < 0:
 		animated_sprite_2d.flip_h = false
 	
 	if player == null:
@@ -30,6 +30,7 @@ func _physics_process(delta: float) -> void:
 	atkcd = max(0.0, atkcd - delta)
 	var distance = global_position.distance_to(player.global_position)
 	if distance <= rangee:
+		face_player()
 		melee_attack()
 		
 	#var direction = (player.global_position - global_position).normalized()
@@ -41,7 +42,9 @@ func _physics_process(delta: float) -> void:
 			var direction = (player.global_position - global_position).normalized()
 			velocity = direction * speed
 			if atkcd <= 0.0:
+				
 				start_attack()
+				
 					
 					
 		#move_and_slide()
@@ -118,5 +121,7 @@ func take_damage(amount: int):
 	if current_health <= 0:
 		current_health = 0 
 		die() 
-func check_attack_collision():
-	pass
+
+func face_player():
+	var dir = player.global_position.x - global_position.x 
+	animated_sprite_2d.flip_h = dir > 0
