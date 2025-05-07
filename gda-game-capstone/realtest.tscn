@@ -1,17 +1,18 @@
-[gd_scene load_steps=13 format=3 uid="uid://ds7lvl3gqg7fm"]
+[gd_scene load_steps=14 format=3 uid="uid://ds7lvl3gqg7fm"]
 
 [ext_resource type="Script" path="res://scripts/realtest.gd" id="1_6p5jx"]
-[ext_resource type="PackedScene" path="res://start.tscn" id="1_l233a"]
+[ext_resource type="PackedScene" uid="uid://qwyw4hoexhl5" path="res://start.tscn" id="1_l233a"]
 [ext_resource type="PackedScene" uid="uid://dteijcr0f8jg1" path="res://scenes/player.tscn" id="2_wqvvs"]
-[ext_resource type="PackedScene" path="res://scenes/teleport.tscn" id="3_eptpl"]
-[ext_resource type="PackedScene" path="res://map6.tscn" id="4_s61ok"]
-[ext_resource type="PackedScene" path="res://checkpoint.tscn" id="5_d83bx"]
-[ext_resource type="PackedScene" path="res://room7.tscn" id="6_oly7d"]
-[ext_resource type="PackedScene" path="res://maze.tscn" id="7_nluve"]
+[ext_resource type="PackedScene" uid="uid://b42nnb0027y2f" path="res://scenes/teleport.tscn" id="3_eptpl"]
+[ext_resource type="PackedScene" uid="uid://y883gjm33r4v" path="res://map6.tscn" id="4_s61ok"]
+[ext_resource type="PackedScene" uid="uid://d2k8fx0sr8yw0" path="res://checkpoint.tscn" id="5_d83bx"]
+[ext_resource type="PackedScene" uid="uid://dav25cpsp7fmb" path="res://room7.tscn" id="6_oly7d"]
+[ext_resource type="PackedScene" uid="uid://n5r6o2bqqppb" path="res://maze.tscn" id="7_nluve"]
 [ext_resource type="PackedScene" uid="uid://ddvuol6rr7m1o" path="res://map8.tscn" id="8_t1rcr"]
 [ext_resource type="PackedScene" uid="uid://bdav71f162way" path="res://scenes/mob.tscn" id="9_v2yoi"]
 [ext_resource type="PackedScene" uid="uid://c4agpyawtrg1g" path="res://scenes/boss.tscn" id="10_vowgc"]
 [ext_resource type="PackedScene" uid="uid://b13aqvb2o5g73" path="res://UI.tscn" id="12_t12ec"]
+[ext_resource type="Script" path="res://HealthBar.gd" id="13_smw6m"]
 
 [node name="Realtest" type="Node2D"]
 script = ExtResource("1_6p5jx")
@@ -97,3 +98,25 @@ position = Vector2(1458, 443)
 
 [node name="Boss" parent="." instance=ExtResource("10_vowgc")]
 position = Vector2(163, 53)
+
+[node name="HealthBar" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="HealthBar"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -923.0
+offset_bottom = 141.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 100
+value = 100.0
+rounded = true
+allow_greater = true
+allow_lesser = true
+fill_mode = 1
+script = ExtResource("13_smw6m")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HealthBar"]
+offset_right = 40.0
+offset_bottom = 40.0

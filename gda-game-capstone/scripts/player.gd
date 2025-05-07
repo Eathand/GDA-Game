@@ -6,7 +6,7 @@ var speed := 300
 @onready var sprite_2d: Sprite2D = $root/Sprite2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
-
+signal Health_changed
 
 @onready var playercol = $"."
 #@onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -124,6 +124,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			take_damage(10)
 			print("Current health: %d" % current_health)
 			dmgcool.start()
-		
+		Health_changed.emit()
 func do_dmg():
 	pass
