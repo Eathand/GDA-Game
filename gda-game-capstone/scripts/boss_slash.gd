@@ -1,7 +1,7 @@
 extends Area2D
 class_name BossSlash
 @onready var damage: int = 10
-@onready var speed: float = 400.0
+@onready var speed: float = 1000.0
 @export var life: float = 10.0
 var direction: Vector2 = Vector2.RIGHT
 # Called when the node enters the scene tree for the first time.

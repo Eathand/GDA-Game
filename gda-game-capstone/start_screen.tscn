@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cyhh2p7dh4j0d" path="res://scenes/mountainbackground (1).png" id="1_njxig"]
 [ext_resource type="Texture2D" uid="uid://bnngpsh86ulei" path="res://scenes/mainmmenu.png" id="2_0pidm"]
 [ext_resource type="Texture2D" uid="uid://dlmw3fix3s65b" path="res://scenes/b-trees.png" id="2_uqxej"]
-[ext_resource type="PackedScene" path="res://temp character.tscn" id="4_t8x24"]
+[ext_resource type="PackedScene" uid="uid://iec4vfatj7i0" path="res://temp character.tscn" id="4_t8x24"]
 [ext_resource type="PackedScene" uid="uid://w8au1oqaq2oh" path="res://Start UI.tscn" id="5_rf2gl"]
 
 [node name="Start screen" type="Node2D"]
