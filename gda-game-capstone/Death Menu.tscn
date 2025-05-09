@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5nvekxcdja1e"]
+[gd_scene load_steps=4 format=3 uid="uid://b5nvekxcdja1e"]
 
 [ext_resource type="FontFile" uid="uid://cpqnpdriqfuxh" path="res://scenes/medieval-pixel.ttf" id="1_cte0h"]
 [ext_resource type="Texture2D" uid="uid://cs5b8u5vs72y" path="res://dead-character (1).png" id="1_ojdvt"]
+[ext_resource type="Script" path="res://scripts/death_menu.gd" id="1_pqh78"]
 
 [node name="Death Menu" type="Control"]
 layout_mode = 3
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_pqh78")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_direction = 1
@@ -80,3 +82,6 @@ offset_bottom = 0.0799561
 theme_override_fonts/font = ExtResource("1_cte0h")
 theme_override_font_sizes/font_size = 101
 text = "Quit"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

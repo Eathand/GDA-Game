@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpxeflnv6rbyp"]
+
+[ext_resource type="Script" path="res://scripts/player_slash.gd" id="1_jyw4x"]
+[ext_resource type="Texture2D" uid="uid://dl0m68qoelu7s" path="res://assets/blade_wave.png" id="2_aa5lq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t2t6p"]
+
+[node name="PlayerSlash" type="Area2D"]
+script = ExtResource("1_jyw4x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_t2t6p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_aa5lq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

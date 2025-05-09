@@ -1,6 +1,7 @@
-[gd_scene load_steps=41 format=3 uid="uid://dteijcr0f8jg1"]
+[gd_scene load_steps=42 format=3 uid="uid://dteijcr0f8jg1"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_frp8s"]
+[ext_resource type="PackedScene" uid="uid://cpxeflnv6rbyp" path="res://scenes/player_slash.tscn" id="2_2i73m"]
 [ext_resource type="Texture2D" uid="uid://bphvuxclha51t" path="res://assets/maincharacter-Sheet.png" id="2_5tfbi"]
 [ext_resource type="Texture2D" uid="uid://bjsbddrlrame8" path="res://assets/dash-frame-Sheet.png" id="2_8juja"]
 [ext_resource type="Texture2D" uid="uid://8c0dabow04vf" path="res://assets/maincharacter (1).png" id="2_8whyy"]
@@ -251,6 +252,7 @@ collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_frp8s")
 acceleration = 100000000
+projectile_scene = ExtResource("2_2i73m")
 
 [node name="playercol" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_r0sq4")

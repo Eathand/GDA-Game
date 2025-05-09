@@ -6,20 +6,16 @@ var speed := 300
 @onready var sprite_2d: Sprite2D = $root/Sprite2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var progress_bar: ProgressBar = $"../HealthBar/ProgressBar"
-
 signal Health_changed(current_health)
-
 @onready var playercol = $"."
 #@onready var animation_player: AnimationPlayer = $AnimationPlayer
-
-
 @onready var sword: Sword = $root/Sword
-
 @export var acceleration := 1000000
 @export var deceleration := 1000000
 @export var dash_speed := 1500.0
 @export var dash_duration := .2
 @export var dash_cooldown := 1.5
+@export var projectile_scene: PackedScene
 var current_health := max_health
 var is_dashing := false
 var dash_timer := 0.0
@@ -31,7 +27,7 @@ func _ready() -> void:
 	cooldown_timer.one_shot = true
 	
 func die():
-	queue_free()
+	get_tree().change_scene_to_file("res://Death Menu.tscn")
 func take_damage(amount: int):
 	current_health -= amount
 	progress_bar.value = current_health
@@ -44,6 +40,8 @@ func heal(amount: int):
 	print("Healed! Current health: %d" % current_health)
 	
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("shoot"):
+		projectile()
 	if Input.is_action_just_pressed("test_damage"):
 		take_damage(5)
 		print("Current health: %d" % current_health)
@@ -118,8 +116,13 @@ func start_dash(direction: Vector2):
 	dash_direction = direction
 	cooldown_timer.stop()
 	#playercol.disabled = false
+func projectile():
 
-
+	var player_slash = projectile_scene.instantiate()
+	get_parent().add_child(player_slash)
+	player_slash.global_position = global_position
+	var dir = (self.global_position - global_position).normalized()
+	
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if (body is Mob):
 		if dmgcool.is_stopped():
