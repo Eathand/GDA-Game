@@ -78,3 +78,4 @@ color = Color(0, 0, 0, 1)
 libraries = {
 "": SubResource("AnimationLibrary_p54ri")
 }
+speed_scale = 0.25

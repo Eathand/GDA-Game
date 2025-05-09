@@ -44,4 +44,4 @@ centered = false
 [node name="Control" parent="ParallaxBackground" instance=ExtResource("5_rf2gl")]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_t8x24")]
-position = Vector2(64, 876)
+position = Vector2(960, 876)
