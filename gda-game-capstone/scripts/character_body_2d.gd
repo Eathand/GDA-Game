@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Boss
 @export var speed = 210
-@export var rangee = 200
+@export var rangee = 100
 @export var atkcdtime = 2
 @export var atkdmg = 10
 @export var max_health: int = 100
@@ -15,49 +15,49 @@ var is_attacking: bool = false
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack: Area2D = $attack
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-
-
+var is_dead = false
 func _physics_process(delta: float) -> void:
-	if velocity.x > 0:
-		animated_sprite_2d.flip_h = true
-	if velocity.x < 0:
-		animated_sprite_2d.flip_h = false
-	
-	if player == null:
-		return
-	if is_attacking:
-		return
-	atkcd = max(0.0, atkcd - delta)
-	var distance = global_position.distance_to(player.global_position)
-	if distance <= rangee:
-		face_player()
-		melee_attack()
+	if not is_dead:
+		if velocity.x > 0:
+			animated_sprite_2d.flip_h = true
+		if velocity.x < 0:
+			animated_sprite_2d.flip_h = false
 		
-	#var direction = (player.global_position - global_position).normalized()
-	if is_attacking:
-		velocity = Vector2.ZERO
-	else:
-		
-		if distance > rangee:
-			var direction = (player.global_position - global_position).normalized()
-			velocity = direction * speed
-			if atkcd <= 0.0:
-				
-				start_attack()
-				
-					
-					
-		#move_and_slide()
-
-		else:
-			velocity = Vector2.ZERO
-
+		if player == null:
+			return
+		if is_attacking:
+			return
+		atkcd = max(0.0, atkcd - delta)
+		var distance = global_position.distance_to(player.global_position)
+		if distance <= rangee:
+			face_player()
+			melee_attack()
 			
-		#move_and_slide()
-			#if atkcd <= 0.0:
-				#start_attack()
-	move_and_slide()
-	atkcd -= delta
+		#var direction = (player.global_position - global_position).normalized()
+		if is_attacking:
+			velocity = Vector2.ZERO
+		else:
+			
+			if distance > rangee:
+				var direction = (player.global_position - global_position).normalized()
+				velocity = direction * speed
+				if atkcd <= 0.0:
+					
+					start_attack()
+					
+						
+						
+			#move_and_slide()
+
+			else:
+				velocity = Vector2.ZERO
+
+				
+			#move_and_slide()
+				#if atkcd <= 0.0:
+					#start_attack()
+		move_and_slide()
+		atkcd -= delta
 
 func _ready() -> void:
 	animated_sprite_2d.play("idle")
@@ -71,6 +71,7 @@ func on_attack_hit(body: Node):
 				body.take_damage(atkdmg)
 				body.dmgcool.start()
 				print(body.current_health)
+	
 func start_attack():
 	is_attacking = true
 	atkcd = atkcdtime
@@ -114,14 +115,19 @@ func _on_attack_body_entered(body: Node2D) -> void:
 		body.take_damage(50)
 		body.dmgcool.start()
 		attack.monitoring = false
-
+		
 		print(body.current_health)
 func take_damage(amount: int):
 	current_health -= amount
 	if current_health <= 0:
 		current_health = 0 
-		die() 
+		die_animation()
 
 func face_player():
 	var dir = player.global_position.x - global_position.x 
 	animated_sprite_2d.flip_h = dir > 0
+func die_animation():
+		is_dead = true
+		animated_sprite_2d.play("death")
+		await animated_sprite_2d.animation_finished
+		queue_free()

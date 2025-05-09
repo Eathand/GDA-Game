@@ -5,8 +5,9 @@ var speed := 300
 @onready var dmgcool: Timer = $DamageCooldown
 @onready var sprite_2d: Sprite2D = $root/Sprite2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var progress_bar: ProgressBar = $"../HealthBar/ProgressBar"
 
-signal Health_changed
+signal Health_changed(current_health)
 
 @onready var playercol = $"."
 #@onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -33,6 +34,7 @@ func die():
 	queue_free()
 func take_damage(amount: int):
 	current_health -= amount
+	progress_bar.value = current_health
 	if current_health <= 0:
 		current_health = 0
 		die()
@@ -119,11 +121,11 @@ func start_dash(direction: Vector2):
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body is Mob:
+	if (body is Mob):
 		if dmgcool.is_stopped():
 			take_damage(10)
 			print("Current health: %d" % current_health)
 			dmgcool.start()
-		Health_changed.emit()
+		Health_changed.emit(current_health)
 func do_dmg():
 	pass
