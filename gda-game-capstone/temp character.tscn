@@ -44,6 +44,7 @@ animations = [{
 }]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+position = Vector2(9, 6)
 script = ExtResource("1_dydfy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -59,7 +60,7 @@ libraries = {
 }
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 47)
+position = Vector2(-4, 14)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_udc4n")
 animation = &"walk"
