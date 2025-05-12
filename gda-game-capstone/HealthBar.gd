@@ -1,8 +1,8 @@
-extends ProgressBar
+extends TextureProgressBar
 
 @export var playerr: Player
 @onready var player: Player = $"../../Player"
-@onready var progress_bar: ProgressBar = $"."
+@onready var progress_bar: TextureProgressBar = $"."
 
 
 

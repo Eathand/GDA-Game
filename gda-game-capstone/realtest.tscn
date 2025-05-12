@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ds7lvl3gqg7fm"]
+[gd_scene load_steps=16 format=3 uid="uid://ds7lvl3gqg7fm"]
 
 [ext_resource type="Script" path="res://scripts/realtest.gd" id="1_6p5jx"]
 [ext_resource type="PackedScene" uid="uid://qwyw4hoexhl5" path="res://start.tscn" id="1_l233a"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://c4agpyawtrg1g" path="res://scenes/boss.tscn" id="10_vowgc"]
 [ext_resource type="PackedScene" uid="uid://b13aqvb2o5g73" path="res://UI.tscn" id="12_t12ec"]
 [ext_resource type="Script" path="res://HealthBar.gd" id="13_smw6m"]
+[ext_resource type="Texture2D" uid="uid://q8w4tbc1ndhb" path="res://boss-health-bar (1).png" id="13_y7302"]
+[ext_resource type="Texture2D" uid="uid://6lwwb8oj8exb" path="res://boss-health-bar.png" id="14_6dch1"]
 
 [node name="Realtest" type="Node2D"]
 script = ExtResource("1_6p5jx")
@@ -26,7 +28,7 @@ visible = false
 position = Vector2(841, 369)
 
 [node name="Player" parent="." instance=ExtResource("2_wqvvs")]
-position = Vector2(1179, 552)
+position = Vector2(824, 484)
 
 [node name="Teleport_start" parent="." instance=ExtResource("3_eptpl")]
 visible = false
@@ -102,21 +104,36 @@ position = Vector2(212, 46)
 [node name="HealthBar" type="CanvasLayer" parent="."]
 
 [node name="ProgressBar" type="ProgressBar" parent="HealthBar"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -923.0
-offset_bottom = 141.0
+visible = false
+anchors_preset = -1
+anchor_left = 0.919271
+anchor_top = -0.0435185
+anchor_right = 0.919271
+anchor_bottom = -0.0435185
+offset_left = -771.0
+offset_top = -20.0
+offset_right = 135.0
+offset_bottom = 121.0
 grow_horizontal = 0
-theme_override_font_sizes/font_size = 100
 value = 100.0
 rounded = true
 allow_greater = true
 allow_lesser = true
 show_percentage = false
-script = ExtResource("13_smw6m")
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="HealthBar"]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HealthBar" node_paths=PackedStringArray("playerr")]
+offset_left = 992.0
+offset_top = -462.0
+offset_right = 2016.0
+offset_bottom = 562.0
+step = 0.01
+value = 100.0
+rounded = true
+allow_greater = true
+allow_lesser = true
+texture_over = ExtResource("14_6dch1")
+texture_progress = ExtResource("13_y7302")
+script = ExtResource("13_smw6m")
+playerr = NodePath("../../Player")
+metadata/_edit_use_anchors_ = true
