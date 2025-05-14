@@ -1,7 +1,7 @@
 extends Node2D
 @onready var canvas_layer: Control = $CanvasLayer/Control
 var pause = false
-@onready var canvas_layer_2: CanvasLayer = $CanvasLayer2
+#@onready var canvas_layer_2: CanvasLayer = $CanvasLayer2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

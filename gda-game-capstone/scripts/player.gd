@@ -27,7 +27,7 @@ func _ready() -> void:
 	cooldown_timer.one_shot = true
 	
 func die():
-	get_tree().change_scene_to_file("res://Death Menu.tscn")
+	Transition.load_scene("res://Death_Menu.tscn")
 func take_damage(amount: int):
 	current_health -= amount
 	progress_bar.value = current_health
