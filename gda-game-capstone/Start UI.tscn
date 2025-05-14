@@ -13,7 +13,6 @@ grow_vertical = 2
 script = ExtResource("1_vb6f8")
 
 [node name="StartButton" type="Button" parent="."]
-visible = false
 clip_contents = true
 layout_mode = 2
 anchor_left = 0.519417
@@ -33,7 +32,6 @@ text = "Start"
 metadata/_edit_use_anchors_ = true
 
 [node name="QuitButton" type="Button" parent="."]
-visible = false
 layout_mode = 2
 anchor_left = 1.00104
 anchor_top = 0.997222
