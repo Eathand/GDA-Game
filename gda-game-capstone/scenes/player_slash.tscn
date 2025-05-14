@@ -6,12 +6,14 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t2t6p"]
 
 [node name="PlayerSlash" type="Area2D"]
+collision_mask = 4
 script = ExtResource("1_jyw4x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_t2t6p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.197266, 0.197266)
 texture = ExtResource("2_aa5lq")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

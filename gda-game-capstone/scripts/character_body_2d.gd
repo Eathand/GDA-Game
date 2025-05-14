@@ -6,17 +6,29 @@ class_name Boss
 @export var atkdmg = 10
 @export var max_health: int = 100
 @export var slash_scene: PackedScene
+@export var mega_attack_scene: PackedScene
 @export var close_range = 100
 var boss_position = $".".global_position.x
 @onready var player = get_node("realtest/Player")
+
 var atkcd = 0
 var current_health:= max_health
 var is_attacking: bool = false
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack: Area2D = $attack
+@onready var mega_atk_timer: Timer = Timer.new()
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 var is_dead = false
+var has_phase2_started := false
+var mega_cd := 15
+var can_mega := true
+var is_doing_mega_atk := false
 func _physics_process(delta: float) -> void:
+	if is_dead or is_doing_mega_atk:
+		velocity = Vector2.ZERO
+		move_and_slide()
+		return
 	if not is_dead:
 		if velocity.x > 0:
 			animated_sprite_2d.flip_h = true
@@ -57,9 +69,14 @@ func _physics_process(delta: float) -> void:
 				#if atkcd <= 0.0:
 					#start_attack()
 		move_and_slide()
-		atkcd -= delta
+
 
 func _ready() -> void:
+	mega_atk_timer.wait_time = 15.0
+	mega_atk_timer.one_shot = false
+	mega_atk_timer.autostart = false
+	mega_atk_timer.connect("timeout", Callable(self, "the_attack"))
+	add_child(mega_atk_timer)
 	animated_sprite_2d.play("idle")
 	player = get_tree().get_first_node_in_group("player") as Node2D
 	attack.body_entered.connect(on_attack_hit)
@@ -122,7 +139,10 @@ func take_damage(amount: int):
 	if current_health <= 0:
 		current_health = 0 
 		die_animation()
-
+	if current_health <= max_health / 2 and not has_phase2_started:
+		print("CHECKING")
+		has_phase2_started = true
+		start_phase2()
 func face_player():
 	var dir = player.global_position.x - global_position.x 
 	animated_sprite_2d.flip_h = dir > 0
@@ -131,3 +151,32 @@ func die_animation():
 		animated_sprite_2d.play("death")
 		await animated_sprite_2d.animation_finished
 		queue_free()
+func start_phase2():
+	print("KEKQ")
+	mega_atk_timer.start()
+func the_attack():
+	print("fewkjnf")
+	if not is_instance_valid(get_tree().get_first_node_in_group("player")):
+		return
+	is_doing_mega_atk = true
+	var player = get_tree().get_first_node_in_group("player")
+	var target_position = player.global_position
+	
+	animated_sprite_2d.play("tele_in")
+	await animated_sprite_2d.animation_finished
+	
+	animated_sprite_2d.play("mega_attack")
+	self.position.x + 90
+	animated_sprite_2d.scale.x = 8
+	animated_sprite_2d.scale.y = 8
+	await animated_sprite_2d.animation_finished
+	
+	var attack = mega_attack_scene.instantiate()
+	attack.global_position = target_position
+	get_parent().add_child(attack)
+	
+	animated_sprite_2d.play("tele_out")
+	animated_sprite_2d.scale.x = 1
+	animated_sprite_2d.scale.y = 1
+	await animated_sprite_2d.animation_finished
+	is_doing_mega_atk = false
