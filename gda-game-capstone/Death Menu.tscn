@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://b5nvekxcdja1e"]
 
-[ext_resource type="Script" path="res://scripts/death_menu.gd" id="1_5858j"]
-[ext_resource type="Texture2D" uid="uid://cs5b8u5vs72y" path="res://dead-character (1).png" id="2_cwhc3"]
-[ext_resource type="FontFile" uid="uid://cpqnpdriqfuxh" path="res://scenes/medieval-pixel.ttf" id="3_xmdit"]
+[ext_resource type="FontFile" uid="uid://cpqnpdriqfuxh" path="res://scenes/medieval-pixel.ttf" id="1_cte0h"]
+[ext_resource type="Texture2D" uid="uid://cs5b8u5vs72y" path="res://dead-character (1).png" id="1_ojdvt"]
+[ext_resource type="Script" path="res://scripts/death_menu.gd" id="1_pqh78"]
 
 [node name="Death Menu" type="Control"]
 layout_mode = 3
@@ -11,7 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_5858j")
+script = ExtResource("1_pqh78")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_direction = 1
@@ -26,7 +26,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Sprite2D" type="Sprite2D" parent="PanelContainer"]
 position = Vector2(421, 167)
 scale = Vector2(1.0918, 0.868164)
-texture = ExtResource("2_cwhc3")
+texture = ExtResource("1_ojdvt")
 centered = false
 metadata/_edit_group_ = true
 
@@ -47,7 +47,7 @@ offset_top = 0.479996
 offset_right = 952.0
 offset_bottom = 288.48
 theme_override_constants/line_spacing = 0
-theme_override_fonts/font = ExtResource("3_xmdit")
+theme_override_fonts/font = ExtResource("1_cte0h")
 theme_override_font_sizes/font_size = 191
 text = "A Valiant Effort. 
 A Horrible Result"
@@ -64,7 +64,7 @@ offset_left = -304.28
 offset_top = -99.8401
 offset_right = 259.72
 offset_bottom = -2.0
-theme_override_fonts/font = ExtResource("3_xmdit")
+theme_override_fonts/font = ExtResource("1_cte0h")
 theme_override_font_sizes/font_size = 121
 text = "Start Over"
 
@@ -79,7 +79,7 @@ offset_left = -186.0
 offset_top = -83.92
 offset_right = -1.0
 offset_bottom = 0.0799561
-theme_override_fonts/font = ExtResource("3_xmdit")
+theme_override_fonts/font = ExtResource("1_cte0h")
 theme_override_font_sizes/font_size = 101
 text = "Quit"
 
