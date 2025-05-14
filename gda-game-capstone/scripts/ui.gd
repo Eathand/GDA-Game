@@ -25,5 +25,5 @@ func _on_quit_button_pressed() -> void:
 
 
 func _on_menu_button_pressed() -> void:
-	Engine.time_scale =1
-	Transition.load_scene("res://start_screen.tscn")
+	Engine.time_scale = 1
+	get_tree().change_scene_to_file("res://start_screen.tscn")

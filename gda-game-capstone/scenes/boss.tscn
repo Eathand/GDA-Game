@@ -1,11 +1,14 @@
-[gd_scene load_steps=59 format=3 uid="uid://c4agpyawtrg1g"]
+[gd_scene load_steps=72 format=3 uid="uid://c4agpyawtrg1g"]
 
 [ext_resource type="Script" path="res://scripts/character_body_2d.gd" id="1_145li"]
 [ext_resource type="PackedScene" uid="uid://frgvmbwm3bfm" path="res://scenes/boss_slash.tscn" id="2_7i3lq"]
 [ext_resource type="Texture2D" uid="uid://b4k8x18xgp77o" path="res://assets/bossidle-Sheet-export.png" id="3_55msj"]
 [ext_resource type="Texture2D" uid="uid://cuhh2hrmq3mbe" path="res://assets/boss attk-Sheet.png" id="3_m5vrs"]
+[ext_resource type="PackedScene" uid="uid://bow015t57vktg" path="res://scenes/mega_atk.tscn" id="3_x6h2a"]
 [ext_resource type="Texture2D" uid="uid://cr0llh3svfh0j" path="res://assets/boss-ranged-attk-Sheet (1).png" id="4_6gpyx"]
 [ext_resource type="Texture2D" uid="uid://cy560t685rmvp" path="res://assets/boss-death-Sheet.png" id="5_8l4om"]
+[ext_resource type="Texture2D" uid="uid://c0ybjfenq3biv" path="res://assets/boss-tele-out-Sheet.png" id="8_10ani"]
+[ext_resource type="Texture2D" uid="uid://dwol80y3wam5j" path="res://assets/boss-tele-in-Sheet.png" id="9_fcbjs"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6s4um"]
 radius = 44.0
@@ -199,6 +202,46 @@ region = Rect2(4096, 0, 512, 512)
 atlas = ExtResource("3_55msj")
 region = Rect2(4608, 0, 512, 512)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocq5e"]
+atlas = ExtResource("8_10ani")
+region = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ao8xn"]
+atlas = ExtResource("8_10ani")
+region = Rect2(1024, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tag2a"]
+atlas = ExtResource("8_10ani")
+region = Rect2(2048, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wf72"]
+atlas = ExtResource("8_10ani")
+region = Rect2(3072, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eld74"]
+atlas = ExtResource("8_10ani")
+region = Rect2(4096, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmgn5"]
+atlas = ExtResource("9_fcbjs")
+region = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ele60"]
+atlas = ExtResource("9_fcbjs")
+region = Rect2(1024, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmhf3"]
+atlas = ExtResource("9_fcbjs")
+region = Rect2(2048, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_faedn"]
+atlas = ExtResource("9_fcbjs")
+region = Rect2(3072, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_urqmx"]
+atlas = ExtResource("9_fcbjs")
+region = Rect2(4096, 0, 1024, 1024)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_g55w5"]
 animations = [{
 "frames": [{
@@ -232,7 +275,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_a3u23")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack1",
 "speed": 9.0
 }, {
@@ -279,7 +322,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ta6o8")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack2",
 "speed": 13.0
 }, {
@@ -355,8 +398,53 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qvxw8")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"mega_attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocq5e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ao8xn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tag2a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wf72")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eld74")
+}],
+"loop": false,
+"name": &"tele_in",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmgn5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ele60")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmhf3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_faedn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_urqmx")
+}],
+"loop": false,
+"name": &"tele_out",
 "speed": 5.0
 }]
 
@@ -427,6 +515,7 @@ collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_145li")
 slash_scene = ExtResource("2_7i3lq")
+mega_attack_scene = ExtResource("3_x6h2a")
 
 [node name="actualcol" type="CollisionShape2D" parent="."]
 position = Vector2(3.33333, 50)
@@ -443,7 +532,7 @@ shape = SubResource("CapsuleShape2D_o41sf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_g55w5")
-animation = &"death"
+animation = &"mega_attack"
 
 [node name="Timer" type="Timer" parent="."]
 

@@ -1,7 +1,8 @@
 extends CharacterBody2D
 class_name Player
+signal dir_slash(ans)
 var speed := 300
-@export var max_health := 100
+@export var max_health := 10000
 @onready var dmgcool: Timer = $DamageCooldown
 @onready var sprite_2d: Sprite2D = $root/Sprite2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -27,7 +28,7 @@ func _ready() -> void:
 	cooldown_timer.one_shot = true
 	
 func die():
-	get_tree().change_scene_to_file("res://Death Menu.tscn")
+	get_tree().change_scene_to_file("res://DeathMenu.tscn")
 func take_damage(amount: int):
 	current_health -= amount
 	progress_bar.value = current_health
@@ -104,11 +105,13 @@ func flip_sword():
 		sword.position.x = -10
 		sword.scale.x =3
 		sword.scale.y=3
+		send_signal()
 	if Input.is_action_pressed("left"):
 		animated_sprite_2d.flip_h = false
 		sword.position.x = 10
 		sword.scale.x =3
 		sword.scale.y=-3
+		send_signal()
 func start_dash(direction: Vector2):
 	playercol.set_collision_mask_value(3, false)
 	is_dashing = true
@@ -121,7 +124,8 @@ func projectile():
 	var player_slash = projectile_scene.instantiate()
 	get_parent().add_child(player_slash)
 	player_slash.global_position = global_position
-	var dir = (self.global_position - global_position).normalized()
+	player_slash.direction = Vector2.RIGHT
+	player_slash.dirdir(0 if animated_sprite_2d.flip_h else 1)
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if (body is Mob):
@@ -132,3 +136,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		Health_changed.emit(current_health)
 func do_dmg():
 	pass
+func send_signal():
+	if animated_sprite_2d.flip_h == true:
+		dir_slash.emit(1)
+	else:
+		dir_slash.emit(0)
