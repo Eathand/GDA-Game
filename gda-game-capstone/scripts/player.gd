@@ -1,14 +1,16 @@
 extends CharacterBody2D
 class_name Player
-signal dir_slash(ans)
 var speed := 300
-@export var max_health := 10000
+signal dir_slash(ans)
+@export var max_health := 250
 @onready var dmgcool: Timer = $DamageCooldown
 @onready var sprite_2d: Sprite2D = $root/Sprite2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var progress_bar: ProgressBar = $"../HealthBar/ProgressBar"
 signal Health_changed(current_health)
 @onready var playercol = $"."
+
+
 #@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sword: Sword = $root/Sword
 @export var acceleration := 1000000
@@ -28,7 +30,7 @@ func _ready() -> void:
 	cooldown_timer.one_shot = true
 	
 func die():
-	get_tree().change_scene_to_file("res://DeathMenu.tscn")
+	Transition.load_scene("res://Death_Menu.tscn")
 func take_damage(amount: int):
 	current_health -= amount
 	progress_bar.value = current_health
@@ -43,6 +45,7 @@ func heal(amount: int):
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot"):
 		projectile()
+
 	if Input.is_action_just_pressed("test_damage"):
 		take_damage(5)
 		print("Current health: %d" % current_health)

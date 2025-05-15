@@ -1,14 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bnjwa4havlmml"]
+[gd_scene load_steps=7 format=3 uid="uid://bnjwa4havlmml"]
 
 [ext_resource type="Script" path="res://start_screen.gd" id="1_je1eg"]
 [ext_resource type="Texture2D" uid="uid://cyhh2p7dh4j0d" path="res://scenes/mountainbackground (1).png" id="1_njxig"]
 [ext_resource type="Texture2D" uid="uid://bnngpsh86ulei" path="res://scenes/mainmmenu.png" id="2_0pidm"]
 [ext_resource type="Texture2D" uid="uid://dlmw3fix3s65b" path="res://scenes/b-trees.png" id="2_uqxej"]
 [ext_resource type="PackedScene" uid="uid://iec4vfatj7i0" path="res://temp character.tscn" id="4_t8x24"]
-[ext_resource type="Texture2D" uid="uid://ca07nnuhl7wlo" path="res://Screenshot_2025-05-13_at_3.31.08_PM-removebg-preview.png" id="5_1gcrq"]
-[ext_resource type="Texture2D" uid="uid://bnjltjywaddjj" path="res://burning_loop_1.png" id="5_p1nbd"]
 [ext_resource type="PackedScene" uid="uid://w8au1oqaq2oh" path="res://Start UI.tscn" id="5_rf2gl"]
-[ext_resource type="AudioStream" uid="uid://ca3nx4fgvlgrm" path="res://Music/MainMenu.mp3" id="9_3q2c4"]
 
 [node name="Start screen" type="Node2D"]
 script = ExtResource("1_je1eg")
@@ -34,11 +31,6 @@ position = Vector2(961, 534.5)
 scale = Vector2(0.468262, 0.525879)
 texture = ExtResource("2_uqxej")
 
-[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/trees"]
-position = Vector2(621, 467)
-scale = Vector2(0.616311, 1.17123)
-texture = ExtResource("5_1gcrq")
-
 [node name="towns building" type="ParallaxLayer" parent="ParallaxBackground"]
 texture_filter = 1
 motion_scale = Vector2(0.75, 0.75)
@@ -49,21 +41,7 @@ scale = Vector2(0.46875, 0.522461)
 texture = ExtResource("2_0pidm")
 centered = false
 
-[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/towns building"]
-position = Vector2(1022, 710)
-scale = Vector2(7.8151, 12.3437)
-texture = ExtResource("5_p1nbd")
-
-[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/towns building"]
-position = Vector2(307, 303)
-scale = Vector2(1.11724, 1.74246)
-texture = ExtResource("5_1gcrq")
-
 [node name="Control" parent="ParallaxBackground" instance=ExtResource("5_rf2gl")]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_t8x24")]
 position = Vector2(960, 876)
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_3q2c4")
-autoplay = true

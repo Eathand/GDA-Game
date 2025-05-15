@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ds7lvl3gqg7fm"]
+[gd_scene load_steps=18 format=3 uid="uid://ds7lvl3gqg7fm"]
 
 [ext_resource type="Script" path="res://scripts/realtest.gd" id="1_6p5jx"]
 [ext_resource type="PackedScene" uid="uid://qwyw4hoexhl5" path="res://start.tscn" id="1_l233a"]
@@ -9,12 +9,14 @@
 [ext_resource type="PackedScene" uid="uid://dav25cpsp7fmb" path="res://room7.tscn" id="6_oly7d"]
 [ext_resource type="PackedScene" uid="uid://n5r6o2bqqppb" path="res://maze.tscn" id="7_nluve"]
 [ext_resource type="PackedScene" uid="uid://ddvuol6rr7m1o" path="res://map8.tscn" id="8_t1rcr"]
-[ext_resource type="PackedScene" uid="uid://bdav71f162way" path="res://scenes/mob.tscn" id="9_v2yoi"]
 [ext_resource type="PackedScene" uid="uid://c4agpyawtrg1g" path="res://scenes/boss.tscn" id="10_vowgc"]
 [ext_resource type="PackedScene" uid="uid://b13aqvb2o5g73" path="res://UI.tscn" id="12_t12ec"]
 [ext_resource type="Script" path="res://HealthBar.gd" id="13_smw6m"]
 [ext_resource type="Texture2D" uid="uid://q8w4tbc1ndhb" path="res://boss-health-bar (1).png" id="13_y7302"]
 [ext_resource type="Texture2D" uid="uid://6lwwb8oj8exb" path="res://boss-health-bar.png" id="14_6dch1"]
+[ext_resource type="AudioStream" uid="uid://brv7xr0251wuo" path="res://Music/RegularBGM.mp3" id="15_5puek"]
+[ext_resource type="AudioStream" uid="uid://ber6fue24vt0f" path="res://Music/calmBGM.mp3" id="16_erjve"]
+[ext_resource type="AudioStream" uid="uid://cvra8mg1dvnuf" path="res://Music/BossBGM.mp3" id="17_1vqpp"]
 
 [node name="Realtest" type="Node2D"]
 script = ExtResource("1_6p5jx")
@@ -28,18 +30,32 @@ visible = false
 position = Vector2(841, 369)
 
 [node name="Player" parent="." instance=ExtResource("2_wqvvs")]
-position = Vector2(824, 484)
+position = Vector2(469, 458)
 
-[node name="Teleport_start" parent="." instance=ExtResource("3_eptpl")]
-visible = false
+[node name="RegularBGM" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("15_5puek")
+metadata/_edit_lock_ = true
+
+[node name="CalmBGM" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("16_erjve")
+metadata/_edit_lock_ = true
+
+[node name="BossBGM" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("17_1vqpp")
+max_distance = 200000.0
+metadata/_edit_lock_ = true
+
+[node name="Teleport_start" parent="." node_paths=PackedStringArray("song_type") instance=ExtResource("3_eptpl")]
 position = Vector2(1286, 554)
-new_position_x = 54600
-new_position_y = -7350
+new_position_x = 1545
+new_position_y = -3605
+song_type = NodePath("../Player/RegularBGM")
 
-[node name="Teleport_map6" parent="." instance=ExtResource("3_eptpl")]
+[node name="TP_ chk1" parent="." node_paths=PackedStringArray("song_type") instance=ExtResource("3_eptpl")]
 position = Vector2(3406, -3597)
-new_position_x = 55450
-new_position_y = -13025
+new_position_x = 2435
+new_position_y = -7610
+song_type = NodePath("../Player/CalmBGM")
 
 [node name="Node2D" parent="." instance=ExtResource("4_s61ok")]
 position = Vector2(1423, -4070)
@@ -47,20 +63,20 @@ position = Vector2(1423, -4070)
 [node name="Node2D2" parent="." instance=ExtResource("5_d83bx")]
 position = Vector2(2252, -7825)
 
-[node name="TP_chk1" parent="." instance=ExtResource("3_eptpl")]
-visible = false
-position = Vector2(55745, -13012)
-new_position_x = 54825
-new_position_y = -16105
+[node name="TP_rm2" parent="." node_paths=PackedStringArray("song_type") instance=ExtResource("3_eptpl")]
+position = Vector2(2730, -7615)
+new_position_x = 1840
+new_position_y = -10675
+song_type = NodePath("../Player/RegularBGM")
 
 [node name="Node2D3" parent="." instance=ExtResource("6_oly7d")]
 position = Vector2(1698, -11154)
 
-[node name="TP_rm7" parent="." instance=ExtResource("3_eptpl")]
-visible = false
-position = Vector2(56568, -16108)
-new_position_x = 55370
-new_position_y = -23280
+[node name="TP_chk4" parent="." node_paths=PackedStringArray("song_type") instance=ExtResource("3_eptpl")]
+position = Vector2(3581, -10671)
+new_position_x = 2400
+new_position_y = -17845
+song_type = NodePath("../Player/CalmBGM")
 
 [node name="Node2D4" parent="." instance=ExtResource("7_nluve")]
 position = Vector2(1868, -15845)
@@ -68,20 +84,17 @@ position = Vector2(1868, -15845)
 [node name="Node2D5" parent="." instance=ExtResource("5_d83bx")]
 position = Vector2(2209, -18064)
 
-[node name="Boss2" parent="." instance=ExtResource("10_vowgc")]
-position = Vector2(134, 330)
+[node name="TP_tomaze" parent="." node_paths=PackedStringArray("song_type") instance=ExtResource("3_eptpl")]
+position = Vector2(2689, -17858)
+new_position_x = 2805
+new_position_y = -13715
+song_type = NodePath("../Player/RegularBGM")
 
-[node name="TP_chk2" parent="." instance=ExtResource("3_eptpl")]
-visible = false
-position = Vector2(55681, -23299)
-new_position_x = 55790
-new_position_y = -19147
-
-[node name="TP_maze" parent="." instance=ExtResource("3_eptpl")]
-visible = false
-position = Vector2(55639, -20771)
-new_position_x = 55325
-new_position_y = -25710
+[node name="TP_CHECKP" parent="." node_paths=PackedStringArray("song_type") instance=ExtResource("3_eptpl")]
+position = Vector2(2644, -15331)
+new_position_x = 2355
+new_position_y = -20285
+song_type = NodePath("../Player/CalmBGM")
 
 [node name="Node2D6" parent="." instance=ExtResource("8_t1rcr")]
 position = Vector2(6510, -18030)
@@ -89,14 +102,11 @@ position = Vector2(6510, -18030)
 [node name="Node2D7" parent="." instance=ExtResource("5_d83bx")]
 position = Vector2(2169, -20496)
 
-[node name="TP_chk3" parent="." instance=ExtResource("3_eptpl")]
-visible = false
-position = Vector2(55645, -25731)
-new_position_x = 59770
-new_position_y = -22660
-
-[node name="Mob" parent="." instance=ExtResource("9_v2yoi")]
-position = Vector2(236, 184)
+[node name="TP_BOSS" parent="." node_paths=PackedStringArray("song_type") instance=ExtResource("3_eptpl")]
+position = Vector2(2652, -20289)
+new_position_x = 6790
+new_position_y = -17220
+song_type = NodePath("../Player/BossBGM")
 
 [node name="Boss" parent="." instance=ExtResource("10_vowgc")]
 position = Vector2(212, 46)
@@ -104,7 +114,6 @@ position = Vector2(212, 46)
 [node name="HealthBar" type="CanvasLayer" parent="."]
 
 [node name="ProgressBar" type="ProgressBar" parent="HealthBar"]
-visible = false
 anchors_preset = -1
 anchor_left = 0.919271
 anchor_top = -0.0435185
