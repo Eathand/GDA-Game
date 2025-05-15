@@ -6,6 +6,7 @@ class_name Boss
 @export var atkdmg = 10
 @export var max_health: int = 100
 @export var slash_scene: PackedScene
+@export var mega_attack_scene: PackedScene
 @export var close_range = 100
 var boss_position = $".".global_position.x
 @onready var player = get_node("realtest/Player")
