@@ -3,9 +3,9 @@ class_name PlayerSlash
 @onready var damage: int = 10
 @onready var speed: float = 1000.0
 @export var life: float = 10.0
-var direction: Vector2 = Vector2.RIGHT
 var dirdirdir = true
 @onready var sprite_2d: Sprite2D = $Sprite2D
+var direction: Vector2 = Vector2.RIGHT
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	connect("body_entered", _on_body_entered)
@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is Mob and Boss:
+	if body is Boss:
 		body.take_damage(damage)
 		print("bosshealth is", body.current_health)
 	if body is Mob:
