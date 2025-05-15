@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ce4he6stk6v37"
-path="res://.godot/imported/boss-tele-out-Sheet.png-6d8da3226d942501954d26ec662cb609.ctex"
+uid="uid://b16yiatgvcp84"
+path="res://.godot/imported/boss-just-tophalf-sp-Sheet.png-7bd0825ce85dfa7bf48e7e68445464a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/boss-tele-out-Sheet.png"
-dest_files=["res://.godot/imported/boss-tele-out-Sheet.png-6d8da3226d942501954d26ec662cb609.ctex"]
+source_file="res://boss-just-tophalf-sp-Sheet.png"
+dest_files=["res://.godot/imported/boss-just-tophalf-sp-Sheet.png-7bd0825ce85dfa7bf48e7e68445464a7.ctex"]
 
 [params]
 
