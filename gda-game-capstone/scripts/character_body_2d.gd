@@ -68,6 +68,7 @@ func _ready() -> void:
 	attack.body_entered.connect(on_attack_hit)
 	attack.monitoring = false
 	mega_attack.body_entered.connect(_on_mega_attack_body_entered)
+	mega_attack.monitoring = false
 func on_attack_hit(body: Node):
 		if body is Player:
 			if body.dmgcool.is_stopped():
@@ -146,6 +147,7 @@ func the_attack():
 		offset.x *= -1
 	animated_sprite_2d.play("tele_in")
 	await animated_sprite_2d.animation_finished
+	self.position = player.global_position
 	mega_attack.monitoring = true
 	
 	animation_player.play("big_attack")
@@ -154,7 +156,6 @@ func the_attack():
 	animated_sprite_2d.scale.y = 8
 	await animated_sprite_2d.animation_finished
 	mega_attack.monitoring = false
-	var attack = mega_attack_scene.instantiate()
 	mega_attack.global_position = target_position + offset
 	get_parent().add_child(attack)
 	

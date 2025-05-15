@@ -857,9 +857,7 @@ shape = SubResource("CapsuleShape2D_o41sf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_g55w5")
-animation = &"mega_attack"
-frame = 19
-frame_progress = 1.0
+animation = &"tele_out"
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -880,18 +878,18 @@ collision_mask = 3
 [node name="mega1" type="CollisionShape2D" parent="mega_attack"]
 position = Vector2(-157.333, -92.6667)
 rotation = -0.961708
-scale = Vector2(12.5, 12.5)
+scale = Vector2(20, 20)
 shape = SubResource("CapsuleShape2D_cx2f5")
 
 [node name="mega2" type="CollisionShape2D" parent="mega_attack"]
 position = Vector2(174, -94.6667)
 rotation = 0.921147
-scale = Vector2(12.5, 12.5)
+scale = Vector2(20, 20)
 shape = SubResource("CapsuleShape2D_p613v")
 
 [node name="mega3" type="CollisionShape2D" parent="mega_attack"]
 position = Vector2(8, 176)
-scale = Vector2(12.5, 12.5)
+scale = Vector2(20, 20)
 shape = SubResource("CapsuleShape2D_3kqy2")
 
 [connection signal="body_entered" from="attack" to="." method="_on_attack_body_entered"]
