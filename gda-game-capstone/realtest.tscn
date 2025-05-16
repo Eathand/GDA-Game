@@ -31,7 +31,7 @@ visible = false
 position = Vector2(841, 369)
 
 [node name="Player" parent="." instance=ExtResource("2_wqvvs")]
-position = Vector2(6878, -17226)
+position = Vector2(2619, -15281)
 
 [node name="RegularBGM" type="AudioStreamPlayer2D" parent="Player"]
 stream = ExtResource("15_5puek")
