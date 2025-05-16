@@ -132,6 +132,7 @@ func die_animation():
 		animated_sprite_2d.play("death")
 		await animated_sprite_2d.animation_finished
 		queue_free()
+		
 func start_phase2():
 	print("KEKQ")
 	mega_atk_timer.start()

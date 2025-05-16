@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Player
 var speed := 300
 signal dir_slash(ans)
-@export var max_health := 10000
+@export var max_health := 1000
 @onready var dmgcool: Timer = $DamageCooldown
 @onready var sprite_2d: Sprite2D = $root/Sprite2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
