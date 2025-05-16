@@ -21,7 +21,7 @@ var is_attacking: bool = false
 
 var is_dead = false
 var has_phase2_started := false
-var mega_cd := 15
+var mega_cd := 5
 var can_mega := true
 var is_doing_mega_atk := false
 func _physics_process(delta: float) -> void:

@@ -835,7 +835,7 @@ radius = 14.6667
 height = 114.667
 
 [node name="Boss" type="CharacterBody2D"]
-scale = Vector2(0.512179, 0.511937)
+scale = Vector2(0.412864, 0.411142)
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_145li")
@@ -857,7 +857,7 @@ shape = SubResource("CapsuleShape2D_o41sf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_g55w5")
-animation = &"tele_out"
+animation = &"death"
 
 [node name="Timer" type="Timer" parent="."]
 
