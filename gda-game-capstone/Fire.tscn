@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://d241d1x8hf3hm"]
+
+[ext_resource type="Texture2D" uid="uid://bnjltjywaddjj" path="res://burning_loop_1.png" id="1_0b7ow"]
+[ext_resource type="Script" path="res://fire.gd" id="2_rblgw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0suhp"]
+atlas = ExtResource("1_0b7ow")
+region = Rect2(0, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tf646"]
+atlas = ExtResource("1_0b7ow")
+region = Rect2(24, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssjq7"]
+atlas = ExtResource("1_0b7ow")
+region = Rect2(48, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_je4pw"]
+atlas = ExtResource("1_0b7ow")
+region = Rect2(72, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gkg7"]
+atlas = ExtResource("1_0b7ow")
+region = Rect2(96, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u88jy"]
+atlas = ExtResource("1_0b7ow")
+region = Rect2(120, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dokmx"]
+atlas = ExtResource("1_0b7ow")
+region = Rect2(144, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82wpu"]
+atlas = ExtResource("1_0b7ow")
+region = Rect2(168, 0, 24, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t58vy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0suhp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tf646")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssjq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_je4pw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gkg7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u88jy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dokmx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82wpu")
+}],
+"loop": true,
+"name": &"Fire",
+"speed": 10.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_t58vy")
+animation = &"Fire"
+autoplay = "Fire"
+frame_progress = 0.012275
+script = ExtResource("2_rblgw")
