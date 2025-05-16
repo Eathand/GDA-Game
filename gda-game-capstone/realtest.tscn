@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ds7lvl3gqg7fm"]
+[gd_scene load_steps=18 format=3 uid="uid://ds7lvl3gqg7fm"]
 
 [ext_resource type="Script" path="res://scripts/realtest.gd" id="1_6p5jx"]
 [ext_resource type="PackedScene" uid="uid://qwyw4hoexhl5" path="res://start.tscn" id="1_l233a"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://c4agpyawtrg1g" path="res://scenes/boss.tscn" id="10_vowgc"]
 [ext_resource type="PackedScene" uid="uid://b13aqvb2o5g73" path="res://UI.tscn" id="12_t12ec"]
 [ext_resource type="Script" path="res://HealthBar.gd" id="13_smw6m"]
-[ext_resource type="Texture2D" uid="uid://q8w4tbc1ndhb" path="res://boss-health-bar (1).png" id="13_y7302"]
 [ext_resource type="Texture2D" uid="uid://6lwwb8oj8exb" path="res://boss-health-bar.png" id="14_6dch1"]
 [ext_resource type="AudioStream" uid="uid://brv7xr0251wuo" path="res://Music/RegularBGM.mp3" id="15_5puek"]
 [ext_resource type="AudioStream" uid="uid://ber6fue24vt0f" path="res://Music/calmBGM.mp3" id="16_erjve"]
@@ -119,15 +118,17 @@ song_type = NodePath("../Player/BossBGM")
 [node name="HealthBar" type="CanvasLayer" parent="."]
 
 [node name="ProgressBar" type="ProgressBar" parent="HealthBar"]
+self_modulate = Color(0.568627, 0, 0, 1)
+top_level = true
 anchors_preset = -1
-anchor_left = 0.919271
-anchor_top = -0.0435185
-anchor_right = 0.919271
-anchor_bottom = -0.0435185
-offset_left = -771.0
-offset_top = -20.0
-offset_right = 135.0
-offset_bottom = 121.0
+anchor_left = 0.583
+anchor_top = 0.016
+anchor_right = 0.99
+anchor_bottom = 0.069
+offset_left = 0.640015
+offset_top = -0.280001
+offset_right = -0.800171
+offset_bottom = -0.520004
 grow_horizontal = 0
 min_value = 1.0
 max_value = 1000.0
@@ -150,7 +151,6 @@ rounded = true
 allow_greater = true
 allow_lesser = true
 texture_over = ExtResource("14_6dch1")
-texture_progress = ExtResource("13_y7302")
 script = ExtResource("13_smw6m")
 playerr = NodePath("../../Player")
 metadata/_edit_use_anchors_ = true
