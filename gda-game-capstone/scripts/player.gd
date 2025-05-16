@@ -17,7 +17,7 @@ signal Health_changed(current_health)
 @export var deceleration := 1000000
 @export var dash_speed := 1500.0
 @export var dash_duration := .2
-@export var dash_cooldown := 1.5
+@export var dash_cooldown := 0.8
 @export var projectile_scene: PackedScene
 var current_health := max_health
 var is_dashing := false

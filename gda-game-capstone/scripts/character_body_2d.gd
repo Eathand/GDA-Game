@@ -58,7 +58,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _ready() -> void:
-	mega_atk_timer.wait_time = 10.0
+	mega_atk_timer.wait_time = 8.0
 	mega_atk_timer.one_shot = false
 	mega_atk_timer.autostart = false
 	mega_atk_timer.connect("timeout", Callable(self, "the_attack"))
