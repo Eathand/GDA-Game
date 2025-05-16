@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Player
 signal dir_slash(ans)
 var speed := 300
-@export var max_health := 10000
+@export var max_health := 1000
 @onready var dmgcool: Timer = $DamageCooldown
 @onready var sprite_2d: Sprite2D = $root/Sprite2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -28,7 +28,7 @@ func _ready() -> void:
 	cooldown_timer.one_shot = true
 	
 func die():
-	get_tree().change_scene_to_file("res://DeathMenu.tscn")
+	Transition.load_scene("res://DeathMenu.tscn")
 func take_damage(amount: int):
 	current_health -= amount
 	progress_bar.value = current_health
