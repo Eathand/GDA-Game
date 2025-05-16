@@ -1,18 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpxeflnv6rbyp"]
+[gd_scene load_steps=5 format=3 uid="uid://cpxeflnv6rbyp"]
 
 [ext_resource type="Script" path="res://scripts/player_slash.gd" id="1_jyw4x"]
 [ext_resource type="Texture2D" uid="uid://dl0m68qoelu7s" path="res://assets/blade_wave.png" id="2_aa5lq"]
+[ext_resource type="AudioStream" uid="uid://b0qfl46y13yqq" path="res://SFX/blood-sword-hit.wav" id="3_jsy2s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t2t6p"]
+size = Vector2(51, 55)
 
 [node name="PlayerSlash" type="Area2D"]
 script = ExtResource("1_jyw4x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, -0.5)
 shape = SubResource("RectangleShape2D_t2t6p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("2_aa5lq")
+
+[node name="ProjectileSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_jsy2s")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

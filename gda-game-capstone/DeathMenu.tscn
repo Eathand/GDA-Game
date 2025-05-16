@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5nvekxcdja1e"]
+[gd_scene load_steps=5 format=3 uid="uid://b5nvekxcdja1e"]
 
 [ext_resource type="Script" path="res://scripts/death_menu.gd" id="1_o2gid"]
 [ext_resource type="Texture2D" uid="uid://cs5b8u5vs72y" path="res://dead-character (1).png" id="2_dxcms"]
 [ext_resource type="FontFile" uid="uid://cpqnpdriqfuxh" path="res://scenes/medieval-pixel.ttf" id="3_ih62o"]
+[ext_resource type="AudioStream" uid="uid://bq11e802ocyi7" path="res://SFX/deaths-whistle-sound-only.mp3" id="4_pw700"]
 
 [node name="Death Menu" type="Control"]
 layout_mode = 3
@@ -82,6 +83,10 @@ theme_override_fonts/font = ExtResource("3_ih62o")
 theme_override_font_sizes/font_size = 101
 action_mode = 0
 text = "Quit"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_pw700")
+autoplay = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
