@@ -31,7 +31,7 @@ visible = false
 position = Vector2(841, 369)
 
 [node name="Player" parent="." instance=ExtResource("2_wqvvs")]
-position = Vector2(1104, 573)
+position = Vector2(6878, -17226)
 
 [node name="RegularBGM" type="AudioStreamPlayer2D" parent="Player"]
 stream = ExtResource("15_5puek")
@@ -120,7 +120,7 @@ song_type = NodePath("../Player/BossBGM")
 
 [node name="ProgressBar" type="ProgressBar" parent="HealthBar"]
 anchors_preset = -1
-anchor_left = 0.979688
+anchor_left = 0.919271
 anchor_top = -0.0435185
 anchor_right = 0.919271
 anchor_bottom = -0.0435185
@@ -131,6 +131,7 @@ offset_bottom = 121.0
 grow_horizontal = 0
 min_value = 1.0
 max_value = 1000.0
+value = 1.0
 rounded = true
 allow_greater = true
 allow_lesser = true
@@ -144,6 +145,7 @@ offset_right = 2016.0
 offset_bottom = 562.0
 min_value = 1.0
 max_value = 1000.0
+value = 1.0
 rounded = true
 allow_greater = true
 allow_lesser = true

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/character_body_2d.gd" id="1_145li"]
 [ext_resource type="PackedScene" uid="uid://frgvmbwm3bfm" path="res://scenes/boss_slash.tscn" id="2_7i3lq"]
 [ext_resource type="Texture2D" uid="uid://b4k8x18xgp77o" path="res://assets/bossidle-Sheet-export.png" id="3_55msj"]
-[ext_resource type="PackedScene" uid="uid://bow015t57vktg" path="res://scenes/mega_atk.tscn" id="3_e8evk"]
+[ext_resource type="PackedScene" uid="uid://dyk67ar0etk85" path="res://scenes/mega_atk.tscn" id="3_e8evk"]
 [ext_resource type="Texture2D" uid="uid://cuhh2hrmq3mbe" path="res://assets/boss attk-Sheet.png" id="3_m5vrs"]
 [ext_resource type="Texture2D" uid="uid://cr0llh3svfh0j" path="res://assets/boss-ranged-attk-Sheet (1).png" id="4_6gpyx"]
 [ext_resource type="Texture2D" uid="uid://cy560t685rmvp" path="res://assets/boss-death-Sheet.png" id="5_8l4om"]
@@ -835,7 +835,7 @@ radius = 14.6667
 height = 114.667
 
 [node name="Boss" type="CharacterBody2D"]
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.512179, 0.511937)
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_145li")
