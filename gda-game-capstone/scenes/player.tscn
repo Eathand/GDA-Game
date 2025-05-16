@@ -251,6 +251,7 @@ collision_layer = 2
 collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_frp8s")
+max_health = 100
 acceleration = 100000000
 projectile_scene = ExtResource("2_2i73m")
 

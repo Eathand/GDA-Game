@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bow015t57vktg" path="res://scenes/mega_atk.tscn" id="3_x6h2a"]
 [ext_resource type="Texture2D" uid="uid://cr0llh3svfh0j" path="res://assets/boss-ranged-attk-Sheet (1).png" id="4_6gpyx"]
 [ext_resource type="Texture2D" uid="uid://cy560t685rmvp" path="res://assets/boss-death-Sheet.png" id="5_8l4om"]
-[ext_resource type="Texture2D" uid="uid://c0ybjfenq3biv" path="res://assets/boss-tele-out-Sheet.png" id="8_10ani"]
-[ext_resource type="Texture2D" uid="uid://dwol80y3wam5j" path="res://assets/boss-tele-in-Sheet.png" id="9_fcbjs"]
+[ext_resource type="Texture2D" uid="uid://ce4he6stk6v37" path="res://assets/boss-tele-out-Sheet.png" id="8_10ani"]
+[ext_resource type="Texture2D" uid="uid://b516s1csxsmcy" path="res://assets/boss-tele-in-Sheet.png" id="9_fcbjs"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6s4um"]
 radius = 44.0
