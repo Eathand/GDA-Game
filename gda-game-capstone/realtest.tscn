@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ddvuol6rr7m1o" path="res://map8.tscn" id="8_t1rcr"]
 [ext_resource type="PackedScene" uid="uid://c4agpyawtrg1g" path="res://scenes/boss.tscn" id="10_vowgc"]
 [ext_resource type="PackedScene" uid="uid://b13aqvb2o5g73" path="res://UI.tscn" id="12_t12ec"]
-[ext_resource type="PackedScene" uid="uid://c60iknh1o4hhk" path="res://scenes/buff_card.tscn" id="13_n3hpd"]
+[ext_resource type="PackedScene" path="res://scenes/buff_card.tscn" id="13_n3hpd"]
 [ext_resource type="Script" path="res://HealthBar.gd" id="13_smw6m"]
 [ext_resource type="Texture2D" uid="uid://6lwwb8oj8exb" path="res://boss-health-bar.png" id="14_6dch1"]
 [ext_resource type="AudioStream" uid="uid://brv7xr0251wuo" path="res://Music/RegularBGM.mp3" id="15_5puek"]
