@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bnjwa4havlmml"]
+[gd_scene load_steps=18 format=3 uid="uid://bnjwa4havlmml"]
 
 [ext_resource type="Script" path="res://start_screen.gd" id="1_je1eg"]
 [ext_resource type="Texture2D" uid="uid://cyhh2p7dh4j0d" path="res://scenes/mountainbackground (1).png" id="1_njxig"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bnjltjywaddjj" path="res://burning_loop_1.png" id="4_ct6c1"]
 [ext_resource type="PackedScene" uid="uid://iec4vfatj7i0" path="res://temp character.tscn" id="4_t8x24"]
 [ext_resource type="PackedScene" uid="uid://w8au1oqaq2oh" path="res://Start UI.tscn" id="5_rf2gl"]
+[ext_resource type="AudioStream" uid="uid://ca3nx4fgvlgrm" path="res://Music/MainMenu.mp3" id="8_fy3rq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ij6f2"]
 atlas = ExtResource("4_ct6c1")
@@ -306,3 +307,7 @@ autoplay = "Fire"
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_t8x24")]
 position = Vector2(960, 876)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_fy3rq")
+autoplay = true
