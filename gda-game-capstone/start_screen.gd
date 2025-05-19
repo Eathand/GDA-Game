@@ -10,4 +10,4 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	animated_sprite_2d.play("res://Fire.tscn")
+	animated_sprite_2d.play("Fire")
