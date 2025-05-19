@@ -8,6 +8,7 @@
 size = Vector2(51, 55)
 
 [node name="PlayerSlash" type="Area2D"]
+collision_mask = 5
 script = ExtResource("1_jyw4x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

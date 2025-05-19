@@ -289,13 +289,13 @@ shape = SubResource("CapsuleShape2D_je24y")
 libraries = {
 "": SubResource("AnimationLibrary_qhnxx")
 }
-speed_scale = 0.278
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 visible = false
 scale = Vector2(0.0400391, 0.0400391)
 sprite_frames = SubResource("SpriteFrames_8y7fa")
 animation = &"swingg"
+frame_progress = 0.666349
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2, -2)

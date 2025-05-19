@@ -2,7 +2,9 @@ extends Area2D
 
 @export var new_position_x: int
 @export var new_position_y: int
+@export var rest_palce: bool
 
+@export var cards: PackedScene
 @onready var regular_bgm: AudioStreamPlayer2D = $"../Player/RegularBGM"
 @onready var calm_bgm: AudioStreamPlayer2D = $"../Player/CalmBGM"
 @onready var boss_bgm: AudioStreamPlayer2D = $"../Player/BossBGM"
@@ -29,3 +31,10 @@ func _on_body_entered(body: Node2D) -> void:
 		calm_bgm.stop()
 		boss_bgm.stop()
 		song_type.play()
+	if rest_palce:
+		await get_tree().create_timer(1.2).timeout
+		var cardss = cards.instantiate()
+		var canvas_layer = body.get_node("CanvasLayer")
+		if canvas_layer:
+			canvas_layer.add_child(cardss)
+			cardss.position = Vector2(0, 0)  

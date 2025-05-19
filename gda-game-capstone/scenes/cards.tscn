@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxycl7tv3xks8"]
+
+[ext_resource type="Script" path="res://cards.gd" id="1_nujcn"]
+[ext_resource type="Texture2D" uid="uid://ciahhri8wm2l3" path="res://assets/attackspeeed.png" id="2_e7e18"]
+
+[node name="Cards" type="Control"]
+layout_mode = 3
+anchor_right = 0.334
+anchor_bottom = 0.9
+offset_left = -5.0
+offset_right = 0.719971
+offset_bottom = -6.10352e-05
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_nujcn")
+
+[node name="Image" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 9.0
+offset_top = -3.0
+offset_right = 637.0
+offset_bottom = 959.0
+mouse_filter = 0
+texture = ExtResource("2_e7e18")
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 636.0
+offset_right = 545.0
+offset_bottom = 914.0
+theme_override_font_sizes/normal_font_size = 26
+text = "Description"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 568.0
+offset_right = 601.0
+offset_bottom = 637.0
+theme_override_font_sizes/font_size = 50
+text = "GIabla"
+horizontal_alignment = 1
+
+[connection signal="gui_input" from="Image" to="." method="_on_image_gui_input"]

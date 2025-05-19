@@ -251,7 +251,6 @@ collision_layer = 2
 collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_frp8s")
-max_health = 100
 acceleration = 100000000
 projectile_scene = ExtResource("2_2i73m")
 
@@ -297,6 +296,14 @@ visible = false
 position = Vector2(1.90735e-06, 1.90735e-06)
 scale = Vector2(0.170898, 0.170898)
 texture = ExtResource("2_8whyy")
+
+[node name="projectile_timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="sword_timer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

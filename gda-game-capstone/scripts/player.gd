@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
-signal dir_slash(ans)
 var speed := 300
+signal dir_slash(ans)
 @export var max_health := 1000
 @onready var dmgcool: Timer = $DamageCooldown
 @onready var sprite_2d: Sprite2D = $root/Sprite2D
@@ -9,6 +9,10 @@ var speed := 300
 @onready var progress_bar: ProgressBar = $"../HealthBar/ProgressBar"
 signal Health_changed(current_health)
 @onready var playercol = $"."
+@onready var projectile_timer: Timer = $projectile_timer
+@onready var sword_timer: Timer = $sword_timer
+
+
 #@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sword: Sword = $root/Sword
 @export var acceleration := 1000000
@@ -28,7 +32,7 @@ func _ready() -> void:
 	cooldown_timer.one_shot = true
 	
 func die():
-	Transition.load_scene("res://DeathMenu.tscn")
+	Transition.load_scene("res://Death_Menu.tscn")
 func take_damage(amount: int):
 	current_health -= amount
 	progress_bar.value = current_health
@@ -43,6 +47,7 @@ func heal(amount: int):
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot"):
 		projectile()
+
 	if Input.is_action_just_pressed("test_damage"):
 		take_damage(5)
 		print("Current health: %d" % current_health)
@@ -93,13 +98,14 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func flip_sword():
-	if Input.is_action_just_pressed("Swing"):
+	if Input.is_action_just_pressed("Swing") and sword_timer.is_stopped():
 		sword.show()
 		sword.area_2d.show()
 		sword.swing()
 		await get_tree().create_timer(0.2).timeout
 		sword.hide()
 		sword.area_2d.hide()
+		sword_timer.start()
 	if Input.is_action_pressed("right"):
 		animated_sprite_2d.flip_h = true
 		sword.position.x = -10
@@ -120,13 +126,14 @@ func start_dash(direction: Vector2):
 	cooldown_timer.stop()
 	#playercol.disabled = false
 func projectile():
+	if projectile_timer.is_stopped():
 
-	var player_slash = projectile_scene.instantiate()
-	get_parent().add_child(player_slash)
-	player_slash.global_position = global_position
-	player_slash.direction = Vector2.RIGHT
-	player_slash.dirdir(0 if animated_sprite_2d.flip_h else 1)
-	
+		var player_slash = projectile_scene.instantiate()
+		get_parent().add_child(player_slash)
+		player_slash.global_position = global_position
+		player_slash.direction = Vector2.RIGHT
+		player_slash.dirdir(0 if animated_sprite_2d.flip_h else 1)
+		projectile_timer.start()
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if (body is Mob):
 		if dmgcool.is_stopped():
