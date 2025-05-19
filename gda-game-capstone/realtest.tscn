@@ -81,6 +81,7 @@ song_type = NodePath("../Player/RegularBGM")
 position = Vector2(1698, -11154)
 
 [node name="TP_chk4" parent="." node_paths=PackedStringArray("song_type") instance=ExtResource("3_eptpl")]
+visible = false
 position = Vector2(3581, -10671)
 new_position_x = 2400
 new_position_y = -17845
