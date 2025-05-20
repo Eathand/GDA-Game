@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=3 uid="uid://c4agpyawtrg1g"]
+[gd_scene load_steps=108 format=3 uid="uid://c4agpyawtrg1g"]
 
 [ext_resource type="Script" path="res://scripts/character_body_2d.gd" id="1_145li"]
 [ext_resource type="PackedScene" uid="uid://frgvmbwm3bfm" path="res://scenes/boss_slash.tscn" id="2_7i3lq"]
@@ -114,6 +114,46 @@ region = Rect2(12288, 0, 1024, 1024)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ta6o8"]
 atlas = ExtResource("4_6gpyx")
 region = Rect2(13312, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tq4k3"]
+atlas = ExtResource("3_m5vrs")
+region = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52h5l"]
+atlas = ExtResource("3_m5vrs")
+region = Rect2(1024, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8s5o"]
+atlas = ExtResource("3_m5vrs")
+region = Rect2(2048, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmlb2"]
+atlas = ExtResource("3_m5vrs")
+region = Rect2(3072, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pli4s"]
+atlas = ExtResource("3_m5vrs")
+region = Rect2(4096, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pi33i"]
+atlas = ExtResource("3_m5vrs")
+region = Rect2(5120, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0ylw"]
+atlas = ExtResource("3_m5vrs")
+region = Rect2(6144, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mg83e"]
+atlas = ExtResource("3_m5vrs")
+region = Rect2(7168, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mti11"]
+atlas = ExtResource("3_m5vrs")
+region = Rect2(8192, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfhx3"]
+atlas = ExtResource("3_m5vrs")
+region = Rect2(9216, 0, 1024, 1024)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iicox"]
 atlas = ExtResource("5_8l4om")
@@ -408,6 +448,41 @@ animations = [{
 "speed": 13.0
 }, {
 "frames": [{
+"duration": 9.0,
+"texture": SubResource("AtlasTexture_tq4k3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52h5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8s5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmlb2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pli4s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pi33i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0ylw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mg83e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mti11")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfhx3")
+}],
+"loop": true,
+"name": &"dash_attack",
+"speed": 9.0
+}, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_iicox")
 }, {
@@ -699,6 +774,18 @@ tracks/8/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Sprite2D2:frame")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_jndo2"]
 resource_name = "big_attack"
@@ -817,10 +904,52 @@ tracks/1/keys = {
 "values": [-0.961708, 1.77314, 3.86385, 4.51169, 5.19445, 8.02667, 10.575]
 }
 
+[sub_resource type="Animation" id="Animation_xh2y2"]
+resource_name = "dash_attack"
+length = 2.0
+step = 0.1111
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("attack/CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.0556, 1.1111, 1.4444, 1.5555, 1.6666, 1.76659),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(18.6667, 30.6667), Vector2(18.6667, 30.6667), Vector2(-25.3333, 6.66667), Vector2(24, -18), Vector2(33.3333, -6.66667), Vector2(34, 18), Vector2(-37.3333, -0.666666), Vector2(26, -12)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("attack/CollisionShape2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 1.0556, 1.1111, 1.4444, 1.5555, 1.6666, 1.76659),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.961708, -0.961708, 1.77314, 3.86385, 4.51169, 5.19445, 8.02667, 10.575]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_beoc1"]
 _data = {
 "RESET": SubResource("Animation_lw4sg"),
 "big_attack": SubResource("Animation_jndo2"),
+"dash_attack": SubResource("Animation_xh2y2"),
 "melee": SubResource("Animation_v5y1o")
 }
 
@@ -835,7 +964,7 @@ radius = 14.6667
 height = 114.667
 
 [node name="Boss" type="CharacterBody2D"]
-scale = Vector2(0.422129, 0.420612)
+scale = Vector2(0.3, 0.3)
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_145li")
@@ -857,7 +986,9 @@ shape = SubResource("CapsuleShape2D_o41sf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_g55w5")
-animation = &"tele_out"
+animation = &"attack2"
+frame = 13
+frame_progress = 1.0
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -877,21 +1008,29 @@ collision_layer = 4
 collision_mask = 3
 
 [node name="mega1" type="CollisionShape2D" parent="mega_attack"]
+visible = false
 position = Vector2(-157.333, -92.6667)
 rotation = -0.961708
 scale = Vector2(20, 20)
 shape = SubResource("CapsuleShape2D_cx2f5")
 
 [node name="mega2" type="CollisionShape2D" parent="mega_attack"]
+visible = false
 position = Vector2(174, -94.6667)
 rotation = 0.921147
 scale = Vector2(20, 20)
 shape = SubResource("CapsuleShape2D_p613v")
 
 [node name="mega3" type="CollisionShape2D" parent="mega_attack"]
+visible = false
 position = Vector2(8, 176)
 scale = Vector2(20, 20)
 shape = SubResource("CapsuleShape2D_3kqy2")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_m5vrs")
+hframes = 10
 
 [connection signal="body_entered" from="attack" to="." method="_on_attack_body_entered"]
 [connection signal="body_entered" from="mega_attack" to="." method="_on_mega_attack_body_entered"]

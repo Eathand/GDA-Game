@@ -289,7 +289,6 @@ shape = SubResource("CapsuleShape2D_je24y")
 libraries = {
 "": SubResource("AnimationLibrary_qhnxx")
 }
-speed_scale = 0.277
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 visible = false

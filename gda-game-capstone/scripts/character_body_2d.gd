@@ -21,7 +21,7 @@ var is_attacking: bool = false
 
 var is_dead = false
 var has_phase2_started := false
-var mega_cd := 8
+var mega_cd := 15
 var can_mega := true
 var is_doing_mega_atk := false
 func _physics_process(delta: float) -> void:
@@ -47,18 +47,20 @@ func _physics_process(delta: float) -> void:
 			velocity = Vector2.ZERO
 		else:
 			
-			if distance > rangee:
+			if distance > rangee and atkcd <= 0.0:
+				var choice= randi_range(0,10)
+				if choice < 9:
+					start_attack()
+				else:
+					melee_dash_attack()
+			else:
 				var direction = (player.global_position - global_position).normalized()
 				velocity = direction * speed
+				move_and_slide()
 				if atkcd <= 0.0:
 					start_attack()
-			else:
-				velocity = Vector2.ZERO
-		move_and_slide()
-
-
 func _ready() -> void:
-	mega_atk_timer.wait_time = 8.0
+	mega_atk_timer.wait_time = 15.0
 	mega_atk_timer.one_shot = false
 	mega_atk_timer.autostart = false
 	mega_atk_timer.connect("timeout", Callable(self, "the_attack"))
@@ -113,7 +115,6 @@ func _on_attack_body_entered(body: Node2D) -> void:
 	if body is Player:
 		body.take_damage(50)
 		body.dmgcool.start()
-	
 		print(body.current_health)
 func take_damage(amount: int):
 	current_health -= amount
@@ -150,27 +151,50 @@ func the_attack():
 	await animated_sprite_2d.animation_finished
 	self.position = player.global_position
 	mega_attack.monitoring = true
-	
 	animation_player.play("big_attack")
 	animated_sprite_2d.play("mega_attack")
 	animated_sprite_2d.scale.x = 8
 	animated_sprite_2d.scale.y = 8
 	await animated_sprite_2d.animation_finished
+	animated_sprite_2d.scale.x = 1
+	animated_sprite_2d.scale.y = 1
 	mega_attack.monitoring = false
 	mega_attack.global_position = target_position + offset
 	get_parent().add_child(attack)
-	
 	animated_sprite_2d.play("tele_out")
-	animated_sprite_2d.scale.x = 1
-	animated_sprite_2d.scale.y = 1
+
 	await animated_sprite_2d.animation_finished
 	is_doing_mega_atk = false
-	
-
-
 func _on_mega_attack_body_entered(body: Node2D) -> void:
 	if body is Player:
 		if body.dmgcool.is_stopped():
 			body.take_damage(100)
 			body.dmgcool.start()
 			print("WORKS:", body.current_health)
+			
+func melee_dash_attack():
+	is_attacking = true
+	face_player()
+	animated_sprite_2d.play("dash_attack")  
+	animation_player.play("dash_attack")     
+	await get_tree().create_timer(1.0).timeout  
+	var dir = (player.global_position - global_position).normalized()
+	var dash_distance = 350 
+	var dash_time = 0.2
+	var dash_speed = dash_distance / dash_time
+	var dash_velocity = dir * dash_speed
+	var timer = Timer.new()
+	timer.wait_time = dash_time
+	timer.one_shot = true
+	add_child(timer)
+	timer.start()
+	while timer.time_left > 0:
+		velocity = dash_velocity
+		move_and_slide()
+		await get_tree().process_frame
+	velocity = Vector2.ZERO
+	attack.monitoring = true
+	await get_tree().create_timer(0.2).timeout
+	attack.monitoring = false
+	is_attacking = false
+	animated_sprite_2d.play("idle")
