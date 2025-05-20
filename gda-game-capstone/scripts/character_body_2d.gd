@@ -18,6 +18,8 @@ var is_attacking: bool = false
 @onready var attack: Area2D = $attack
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var mega_attack: Area2D = $mega_attack
+@onready var boss_health_bar: CanvasLayer = $"../bossHealthBar"
+@onready var boss_progress_bar: ProgressBar = $"../bossHealthBar/bossProgressBar"
 
 var is_dead = false
 var has_phase2_started := false
@@ -118,6 +120,7 @@ func _on_attack_body_entered(body: Node2D) -> void:
 		print(body.current_health)
 func take_damage(amount: int):
 	current_health -= amount
+	boss_progress_bar.value = current_health
 	if current_health <= 0:
 		current_health = 0 
 		die_animation()
