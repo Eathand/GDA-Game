@@ -3,11 +3,12 @@ extends Area2D
 @export var new_position_x: int
 @export var new_position_y: int
 @export var rest_palce: bool
-
+@export var boss_room: bool
 @export var cards: PackedScene
 @onready var regular_bgm: AudioStreamPlayer2D = $"../Player/RegularBGM"
 @onready var calm_bgm: AudioStreamPlayer2D = $"../Player/CalmBGM"
 @onready var boss_bgm: AudioStreamPlayer2D = $"../Player/BossBGM"
+@onready var boss_health_bar: CanvasLayer = $"../bossHealthBar"
 
 
 @export var song_type: AudioStreamPlayer2D
@@ -38,3 +39,5 @@ func _on_body_entered(body: Node2D) -> void:
 		if canvas_layer:
 			canvas_layer.add_child(cardss)
 			cardss.position = Vector2(0, 0)  
+	if boss_room:
+		boss_health_bar.show()

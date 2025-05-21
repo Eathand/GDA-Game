@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Player
 var speed := 300
 signal dir_slash(ans)
-@export var max_health := 1000
+@export var max_health := 500
 @onready var dmgcool: Timer = $DamageCooldown
 @onready var sprite_2d: Sprite2D = $root/Sprite2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -137,7 +137,7 @@ func projectile():
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if (body is Mob):
 		if dmgcool.is_stopped():
-			take_damage(10)
+			take_damage(20)
 			print("Current health: %d" % current_health)
 			dmgcool.start()
 		Health_changed.emit(current_health)

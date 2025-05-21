@@ -4,7 +4,7 @@ class_name Boss
 @export var rangee = 100
 @export var atkcdtime = 2
 @export var atkdmg = 10
-@export var max_health: int = 100
+@export var max_health: int = 750
 @export var slash_scene: PackedScene
 @export var mega_attack_scene: PackedScene
 @export var close_range = 100

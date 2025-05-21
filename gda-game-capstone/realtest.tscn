@@ -13,12 +13,12 @@
 [ext_resource type="PackedScene" uid="uid://b13aqvb2o5g73" path="res://UI.tscn" id="12_t12ec"]
 [ext_resource type="PackedScene" uid="uid://c60iknh1o4hhk" path="res://scenes/buff_card.tscn" id="13_n3hpd"]
 [ext_resource type="Script" path="res://HealthBar.gd" id="13_smw6m"]
-[ext_resource type="Texture2D" uid="uid://6lwwb8oj8exb" path="res://boss-health-bar.png" id="14_6dch1"]
 [ext_resource type="AudioStream" uid="uid://brv7xr0251wuo" path="res://Music/RegularBGM.mp3" id="15_5puek"]
+[ext_resource type="Texture2D" uid="uid://cst5uvkn4aitq" path="res://scenes/boss-health-bar (3).png" id="15_gar5m"]
 [ext_resource type="AudioStream" uid="uid://ber6fue24vt0f" path="res://Music/calmBGM.mp3" id="16_erjve"]
 [ext_resource type="AudioStream" uid="uid://cvra8mg1dvnuf" path="res://Music/BossBGM.mp3" id="17_1vqpp"]
+[ext_resource type="Texture2D" uid="uid://ctjpux7i8wcey" path="res://boss-health-bar (2).png" id="17_k3p1b"]
 [ext_resource type="PackedScene" uid="uid://bdav71f162way" path="res://scenes/mob.tscn" id="17_mbsk7"]
-[ext_resource type="Texture2D" uid="uid://cyb1iaiis08dk" path="res://assets/boss-health-bar.png" id="17_u51j0"]
 
 [node name="Realtest" type="Node2D"]
 script = ExtResource("1_6p5jx")
@@ -32,7 +32,7 @@ visible = false
 position = Vector2(841, 369)
 
 [node name="Player" parent="." instance=ExtResource("2_wqvvs")]
-position = Vector2(289, 533)
+position = Vector2(1155, 557)
 
 [node name="RegularBGM" type="AudioStreamPlayer2D" parent="Player"]
 stream = ExtResource("15_5puek")
@@ -116,12 +116,11 @@ position = Vector2(6510, -18030)
 [node name="Node2D7" parent="." instance=ExtResource("5_d83bx")]
 position = Vector2(2169, -20496)
 
-[node name="TP_BOSS" parent="." node_paths=PackedStringArray("song_type") instance=ExtResource("3_eptpl")]
-visible = false
+[node name="TP_room_6" parent="." node_paths=PackedStringArray("song_type") instance=ExtResource("3_eptpl")]
 position = Vector2(2652, -20289)
-new_position_x = 6790
-new_position_y = -17220
-song_type = NodePath("../Player/BossBGM")
+new_position_x = 2755
+new_position_y = -22437
+song_type = NodePath("../Player/RegularBGM")
 
 [node name="HealthBar" type="CanvasLayer" parent="."]
 
@@ -138,7 +137,7 @@ offset_right = 0.319946
 offset_bottom = -0.520004
 grow_horizontal = 0
 min_value = 1.0
-max_value = 900.0
+max_value = 500.0
 value = 1.0
 rounded = true
 allow_greater = true
@@ -155,7 +154,7 @@ offset_top = -462.0
 offset_right = 512.64
 offset_bottom = 562.0
 min_value = 1.0
-max_value = 900.0
+max_value = 500.0
 value = 1.0
 rounded = true
 allow_greater = true
@@ -164,15 +163,16 @@ stretch_margin_left = 4
 stretch_margin_top = 4
 stretch_margin_right = 4
 stretch_margin_bottom = 4
-texture_over = ExtResource("14_6dch1")
+texture_over = ExtResource("15_gar5m")
 script = ExtResource("13_smw6m")
 playerr = NodePath("../../Player")
 metadata/_edit_use_anchors_ = true
 
 [node name="bossHealthBar" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="bossProgressBar" type="ProgressBar" parent="bossHealthBar"]
-self_modulate = Color(0.482353, 0, 0, 1)
+modulate = Color(0.419969, 1.86507e-07, 1.20327e-07, 1)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -184,6 +184,8 @@ offset_right = 376.0
 offset_bottom = 335.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+max_value = 750.0
 rounded = true
 allow_greater = true
 allow_lesser = true
@@ -202,7 +204,9 @@ offset_bottom = 296.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
-texture_over = ExtResource("17_u51j0")
+mouse_filter = 2
+max_value = 750.0
+texture_over = ExtResource("17_k3p1b")
 
 [node name="Boss" parent="." instance=ExtResource("10_vowgc")]
 position = Vector2(8475, -17239)
@@ -248,5 +252,51 @@ position = Vector2(7584, -17128)
 [node name="Mob13" parent="mobs" instance=ExtResource("17_mbsk7")]
 position = Vector2(7200, -17280)
 
-[node name="Boss2" parent="." instance=ExtResource("10_vowgc")]
-position = Vector2(489, 602)
+[node name="Node2D8" parent="." instance=ExtResource("4_s61ok")]
+position = Vector2(2605, -22907)
+
+[node name="Teleport" parent="." instance=ExtResource("3_eptpl")]
+position = Vector2(4597, -22444)
+new_position_x = 3040
+new_position_y = -25672
+
+[node name="Node2D9" parent="." instance=ExtResource("6_oly7d")]
+position = Vector2(2899, -26160)
+
+[node name="Teleport2" parent="." node_paths=PackedStringArray("song_type") instance=ExtResource("3_eptpl")]
+position = Vector2(4779, -25670)
+new_position_x = 6995
+new_position_y = -25775
+rest_palce = true
+cards = ExtResource("13_n3hpd")
+song_type = NodePath("../Player/CalmBGM")
+
+[node name="Node2D10" parent="." instance=ExtResource("5_d83bx")]
+position = Vector2(6809, -26004)
+
+[node name="Teleport3" parent="." node_paths=PackedStringArray("song_type") instance=ExtResource("3_eptpl")]
+position = Vector2(7292, -25823)
+new_position_x = 3035
+new_position_y = -28950
+song_type = NodePath("../Player/RegularBGM")
+
+[node name="Node2D11" parent="." instance=ExtResource("4_s61ok")]
+position = Vector2(2890, -29444)
+
+[node name="Teleport4" parent="." node_paths=PackedStringArray("song_type") instance=ExtResource("3_eptpl")]
+position = Vector2(4879, -28983)
+new_position_x = 8140
+new_position_y = -29040
+rest_palce = true
+cards = ExtResource("13_n3hpd")
+song_type = NodePath("../Player/CalmBGM")
+
+[node name="Node2D12" parent="." instance=ExtResource("5_d83bx")]
+position = Vector2(7955, -29252)
+
+[node name="Teleport5" parent="." node_paths=PackedStringArray("song_type") instance=ExtResource("3_eptpl")]
+position = Vector2(8453, -29062)
+new_position_x = 6785
+new_position_y = -17210
+boss_room = true
+song_type = NodePath("../Player/BossBGM")

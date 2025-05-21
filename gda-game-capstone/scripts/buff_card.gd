@@ -5,7 +5,7 @@ func _ready():
 	var all_buffs = [
 		{name="Max HP Boost", desc="Increase max HP by 20%", apply=func(): apply_max_hp(), texture="res://assets/maxhhealth.png"},
 		{name="Speed Boost", desc="Move 20% faster", apply=func(): apply_speed(), texture="res://assets/moveeeemeeeeent.png" },
-		{name="Attack Cooldown", desc="Sword attacks cooldown reduced", apply=func(): apply_attack_cooldown(), texture="res://assets/attackspeeed1213.png" },
+		{name="Attack DMG Increase", desc="Increase Damage by 20%", apply=func(): apply_attack_cooldown(), texture="res://assets/attackspeeed1213.png" },
 		{name="Projectile Cooldown", desc="Projectile cooldown reduced", apply=func(): apply_proj_cooldown(), texture="res://assets/attacskpeeed.png" }
 	]
 	all_buffs.shuffle() 
@@ -35,10 +35,9 @@ func apply_speed():
 		player.speed += 200  
 		print("Speedd: ", player.speed)
 func apply_attack_cooldown():
-	var player = get_tree().get_first_node_in_group("player")
-	if player:
-		player.sword_timer.wait_time = max(player.sword_timer.wait_time - 0.1, 0.1)
-		print("Sword cooldown:", player.sword_timer.wait_time)
+	var sword = get_tree().get_first_node_in_group("sword")
+	if sword:
+		sword.damage *= 1.2
 func apply_proj_cooldown():
 	var player = get_tree().get_first_node_in_group("player")
 	if player:

@@ -274,7 +274,7 @@ animations = [{
 "speed": 15.0
 }]
 
-[node name="Sword" type="Node2D"]
+[node name="Sword" type="Node2D" groups=["sword"]]
 script = ExtResource("1_idhua")
 
 [node name="Area2D" type="Area2D" parent="."]

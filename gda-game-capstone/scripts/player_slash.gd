@@ -1,6 +1,6 @@
 extends Area2D
 class_name PlayerSlash
-@onready var damage: int = 10
+@onready var damage: int = 20
 @onready var speed: float = 1000.0
 @export var life: float = 10.0
 var dirdirdir = true
