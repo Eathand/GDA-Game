@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b13aqvb2o5g73"]
 
 [ext_resource type="FontFile" uid="uid://cpqnpdriqfuxh" path="res://scenes/medieval-pixel.ttf" id="1_rnflq"]
-[ext_resource type="Script" path="res://scripts/ui.gd" id="1_yi47d"]
+[ext_resource type="Script" uid="uid://chg3mlveyn1kp" path="res://scripts/ui.gd" id="1_yi47d"]
 
 [node name="Control" type="Control"]
 layout_mode = 3

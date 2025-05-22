@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b5nvekxcdja1e"]
 
-[ext_resource type="Script" path="res://scripts/death_menu.gd" id="1_o2gid"]
+[ext_resource type="Script" uid="uid://boku4r2rf4enh" path="res://scripts/death_menu.gd" id="1_o2gid"]
 [ext_resource type="Texture2D" uid="uid://cs5b8u5vs72y" path="res://dead-character (1).png" id="2_dxcms"]
 [ext_resource type="FontFile" uid="uid://cpqnpdriqfuxh" path="res://scenes/medieval-pixel.ttf" id="3_ih62o"]
 [ext_resource type="AudioStream" uid="uid://bq11e802ocyi7" path="res://SFX/deaths-whistle-sound-only.mp3" id="4_pw700"]

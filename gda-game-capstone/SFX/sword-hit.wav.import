@@ -3,11 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://d3o8dgjeo3psh"
-valid=false
+path="res://.godot/imported/sword-hit.wav-5d5549bf041a227f31e509d14f7f9bc2.sample"
 
 [deps]
 
 source_file="res://SFX/sword-hit.wav"
+dest_files=["res://.godot/imported/sword-hit.wav-5d5549bf041a227f31e509d14f7f9bc2.sample"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://iec4vfatj7i0"]
 
-[ext_resource type="Script" path="res://character_body_2d.gd" id="1_dydfy"]
+[ext_resource type="Script" uid="uid://dlyj6jcsc6ugb" path="res://character_body_2d.gd" id="1_dydfy"]
 [ext_resource type="Texture2D" uid="uid://bphvuxclha51t" path="res://assets/maincharacter-Sheet.png" id="3_xt1gd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pavnv"]
@@ -11,7 +11,7 @@ resource_name = "MenuCharacter"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_knlv5"]
 _data = {
-"MenuCharacter": SubResource("Animation_dcjc2")
+&"MenuCharacter": SubResource("Animation_dcjc2")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hfyec"]

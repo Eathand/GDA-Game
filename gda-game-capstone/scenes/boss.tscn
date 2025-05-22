@@ -1,6 +1,6 @@
 [gd_scene load_steps=108 format=3 uid="uid://c4agpyawtrg1g"]
 
-[ext_resource type="Script" path="res://scripts/character_body_2d.gd" id="1_145li"]
+[ext_resource type="Script" uid="uid://dq3r3j71df626" path="res://scripts/character_body_2d.gd" id="1_145li"]
 [ext_resource type="PackedScene" uid="uid://frgvmbwm3bfm" path="res://scenes/boss_slash.tscn" id="2_7i3lq"]
 [ext_resource type="Texture2D" uid="uid://b4k8x18xgp77o" path="res://assets/bossidle-Sheet-export.png" id="3_55msj"]
 [ext_resource type="PackedScene" uid="uid://bow015t57vktg" path="res://scenes/mega_atk.tscn" id="3_e8evk"]
@@ -947,10 +947,10 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_beoc1"]
 _data = {
-"RESET": SubResource("Animation_lw4sg"),
-"big_attack": SubResource("Animation_jndo2"),
-"dash_attack": SubResource("Animation_xh2y2"),
-"melee": SubResource("Animation_v5y1o")
+&"RESET": SubResource("Animation_lw4sg"),
+&"big_attack": SubResource("Animation_jndo2"),
+&"dash_attack": SubResource("Animation_xh2y2"),
+&"melee": SubResource("Animation_v5y1o")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cx2f5"]

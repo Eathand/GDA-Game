@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cpxeflnv6rbyp"]
 
-[ext_resource type="Script" path="res://scripts/player_slash.gd" id="1_jyw4x"]
+[ext_resource type="Script" uid="uid://boy4sgqmokjgl" path="res://scripts/player_slash.gd" id="1_jyw4x"]
 [ext_resource type="Texture2D" uid="uid://dl0m68qoelu7s" path="res://assets/blade_wave.png" id="2_aa5lq"]
 [ext_resource type="AudioStream" uid="uid://b0qfl46y13yqq" path="res://SFX/blood-sword-hit.wav" id="3_jsy2s"]
 

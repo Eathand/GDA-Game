@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c60iknh1o4hhk"]
 
-[ext_resource type="Script" path="res://scripts/buff_card.gd" id="1_jiwro"]
+[ext_resource type="Script" uid="uid://b7817j3bbjyse" path="res://scripts/buff_card.gd" id="1_jiwro"]
 [ext_resource type="PackedScene" uid="uid://cxycl7tv3xks8" path="res://scenes/cards.tscn" id="2_4n4hg"]
 
 [node name="BuffCard" type="Control"]

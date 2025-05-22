@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://cwpoiwpgp5ykn"]
 
-[ext_resource type="Script" path="res://scripts/sword.gd" id="1_idhua"]
+[ext_resource type="Script" uid="uid://70qqtf3ov8b7" path="res://scripts/sword.gd" id="1_idhua"]
 [ext_resource type="Texture2D" uid="uid://b3ucxrla7wnae" path="res://assets/weaponsmear-Sheet (1).png" id="2_xr35n"]
 [ext_resource type="Texture2D" uid="uid://ppg6rcks6bdd" path="res://assets/weapon.png" id="3_r7xet"]
 [ext_resource type="AudioStream" uid="uid://b0qfl46y13yqq" path="res://SFX/blood-sword-hit.wav" id="4_7k0gy"]
@@ -236,8 +236,8 @@ tracks/8/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qhnxx"]
 _data = {
-"RESET": SubResource("Animation_srlfi"),
-"swing": SubResource("Animation_pupvg")
+&"RESET": SubResource("Animation_srlfi"),
+&"swing": SubResource("Animation_pupvg")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ke1ef"]
