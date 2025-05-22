@@ -3,7 +3,7 @@ extends CharacterBody2D
 var speed := 175
 @export var acceleration := 1200.0
 @export var deceleration := 1080.0
-@export var max_health := 50
+@export var max_health := 10000
 @export var dash_speed := 600  # Speed during dash
 @export var dash_duration := 0.2  # Time duration for dash
 @export var dash_cooldown := 0.5  # Time before you can dash again
