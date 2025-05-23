@@ -82,6 +82,7 @@ song_type = NodePath("../Player/RegularBGM")
 position = Vector2(1698, -11154)
 
 [node name="TP_chk4" parent="." node_paths=PackedStringArray("song_type") instance=ExtResource("3_eptpl")]
+visible = false
 position = Vector2(3581, -10671)
 new_position_x = 2400
 new_position_y = -17845
@@ -103,6 +104,7 @@ new_position_y = -13715
 song_type = NodePath("../Player/RegularBGM")
 
 [node name="TP_CHECKP" parent="." node_paths=PackedStringArray("song_type") instance=ExtResource("3_eptpl")]
+visible = false
 position = Vector2(2644, -15331)
 new_position_x = 2355
 new_position_y = -20285
@@ -117,6 +119,7 @@ position = Vector2(6510, -18030)
 position = Vector2(2169, -20496)
 
 [node name="TP_room_6" parent="." node_paths=PackedStringArray("song_type") instance=ExtResource("3_eptpl")]
+visible = false
 position = Vector2(2652, -20289)
 new_position_x = 2755
 new_position_y = -22437
@@ -252,10 +255,50 @@ position = Vector2(7584, -17128)
 [node name="Mob13" parent="mobs" instance=ExtResource("17_mbsk7")]
 position = Vector2(7200, -17280)
 
+[node name="Mob14" parent="mobs" instance=ExtResource("17_mbsk7")]
+position = Vector2(3076, -22184)
+
+[node name="Mob15" parent="mobs" instance=ExtResource("17_mbsk7")]
+position = Vector2(4164, -22619)
+
+[node name="Mob16" parent="mobs" instance=ExtResource("17_mbsk7")]
+position = Vector2(3179, -22588)
+
+[node name="Mob17" parent="mobs" instance=ExtResource("17_mbsk7")]
+position = Vector2(4164, -22133)
+
+[node name="Mob18" parent="mobs" instance=ExtResource("17_mbsk7")]
+position = Vector2(3389, -25938)
+
+[node name="Mob19" parent="mobs" instance=ExtResource("17_mbsk7")]
+position = Vector2(4315, -25359)
+
+[node name="Mob20" parent="mobs" instance=ExtResource("17_mbsk7")]
+position = Vector2(4354, -25842)
+
+[node name="Mob21" parent="mobs" instance=ExtResource("17_mbsk7")]
+position = Vector2(3431, -25428)
+
+[node name="Mob22" parent="mobs" instance=ExtResource("17_mbsk7")]
+position = Vector2(3586, -29179)
+
+[node name="Mob23" parent="mobs" instance=ExtResource("17_mbsk7")]
+position = Vector2(3367, -28751)
+
+[node name="Mob24" parent="mobs" instance=ExtResource("17_mbsk7")]
+position = Vector2(4556, -29027)
+
+[node name="Mob25" parent="mobs" instance=ExtResource("17_mbsk7")]
+position = Vector2(4166, -28761)
+
+[node name="Mob26" parent="mobs" instance=ExtResource("17_mbsk7")]
+position = Vector2(4071, -29122)
+
 [node name="Node2D8" parent="." instance=ExtResource("4_s61ok")]
 position = Vector2(2605, -22907)
 
 [node name="Teleport" parent="." instance=ExtResource("3_eptpl")]
+visible = false
 position = Vector2(4597, -22444)
 new_position_x = 3040
 new_position_y = -25672
@@ -264,6 +307,7 @@ new_position_y = -25672
 position = Vector2(2899, -26160)
 
 [node name="Teleport2" parent="." node_paths=PackedStringArray("song_type") instance=ExtResource("3_eptpl")]
+visible = false
 position = Vector2(4779, -25670)
 new_position_x = 6995
 new_position_y = -25775
@@ -275,6 +319,7 @@ song_type = NodePath("../Player/CalmBGM")
 position = Vector2(6809, -26004)
 
 [node name="Teleport3" parent="." node_paths=PackedStringArray("song_type") instance=ExtResource("3_eptpl")]
+visible = false
 position = Vector2(7292, -25823)
 new_position_x = 3035
 new_position_y = -28950
@@ -284,6 +329,7 @@ song_type = NodePath("../Player/RegularBGM")
 position = Vector2(2890, -29444)
 
 [node name="Teleport4" parent="." node_paths=PackedStringArray("song_type") instance=ExtResource("3_eptpl")]
+visible = false
 position = Vector2(4879, -28983)
 new_position_x = 8140
 new_position_y = -29040
@@ -295,6 +341,7 @@ song_type = NodePath("../Player/CalmBGM")
 position = Vector2(7955, -29252)
 
 [node name="Teleport5" parent="." node_paths=PackedStringArray("song_type") instance=ExtResource("3_eptpl")]
+visible = false
 position = Vector2(8453, -29062)
 new_position_x = 6785
 new_position_y = -17210

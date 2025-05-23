@@ -16,7 +16,7 @@ func _ready():
 		card.description = selected_buffs[i].desc
 		card.apply_func = selected_buffs[i].apply
 		card.texture_path = selected_buffs[i].texture
-		card.position = Vector2(100 + i * 550, 200)
+		card.position = Vector2(100 + i * 650, 200)
 		card.buff_selected.connect(_on_buff_selected)
 		add_child(card)
 func _on_buff_selected(buff_name):

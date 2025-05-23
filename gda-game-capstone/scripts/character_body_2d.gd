@@ -124,6 +124,7 @@ func take_damage(amount: int):
 	if current_health <= 0:
 		current_health = 0 
 		die_animation()
+		Transition.load_scene("res://scenes/endscreen.tscn")
 	if current_health <= max_health / 2 and not has_phase2_started:
 		print("CHECKING")
 		has_phase2_started = true
